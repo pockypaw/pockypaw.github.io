@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Muhamad Ridho Ardian — Full-Stack Web Developer</title>
+
+    <meta
+        name="description"
+        content="Portfolio of Muhamad Ridho Ardian, a Full-Stack Web Developer specializing in Laravel, React, PHP, MySQL, and modern web applications."
+    >
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: #07111f;
+            color: #e8eef7;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: 0 auto;
+        }
+
+        /* =========================
+           VARIABLES
+        ========================= */
+
+        :root {
+            --bg: #07111f;
+            --bg-secondary: #0b1728;
+            --card: #0d1b2d;
+            --card-hover: #11243a;
+
+            --text: #e8eef7;
+            --muted: #91a0b5;
+
+            --primary: #5b8cff;
+            --primary-light: #7da4ff;
+
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(7, 17, 31, 0.82);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 72px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(91, 140, 255, 0.16),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(91, 140, 255, 0.08),
+                    transparent 30%
+                );
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+
+            padding: 8px 14px;
+
+            border: 1px solid rgba(91, 140, 255, 0.3);
+            border-radius: 999px;
+
+            background: rgba(91, 140, 255, 0.08);
+
+            color: var(--primary-light);
+
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #4ade80;
+
+            margin-right: 8px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 86px);
+            line-height: 0.98;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            color: var(--muted);
+
+            font-size: 18px;
+
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 21px;
+
+            border-radius: 9px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background: var(--card);
+        }
+
+        /* =========================
+           GENERAL SECTION
+        ========================= */
+
+        section {
+            padding: 110px 0;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-label {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            letter-spacing: -1.5px;
+        }
+
+        .section-description {
+            max-width: 650px;
+            color: var(--muted);
+            margin-top: 12px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: var(--bg-secondary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .about-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-card {
+            padding: 22px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .info-card small {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            margin-bottom: 5px;
+        }
+
+        .info-card strong {
+            font-size: 15px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 16px;
+        }
+
+        .skill {
+            padding: 22px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            background: var(--card-hover);
+            border-color: rgba(91, 140, 255, 0.3);
+        }
+
+        .skill-icon {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .skill h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .skill p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            background: var(--bg-secondary);
+        }
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .project {
+            overflow: hidden;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+            border-color: rgba(91, 140, 255, 0.3);
+        }
+
+        .project-image {
+            height: 190px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #101f35,
+                    #172e4d
+                );
+
+            font-size: 45px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 5px 9px;
+
+            border-radius: 6px;
+
+            background: rgba(91, 140, 255, 0.08);
+
+            color: var(--primary-light);
+
+            font-size: 11px;
+        }
+
+        /* =========================
+           EXPERIENCE
+        ========================= */
+
+        .timeline {
+            position: relative;
+
+            max-width: 800px;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            left: 7px;
+            top: 10px;
+            bottom: 10px;
+
+            width: 1px;
+
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+
+            padding-left: 40px;
+
+            margin-bottom: 45px;
+        }
+
+        .timeline-item::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 8px;
+
+            width: 15px;
+            height: 15px;
+
+            border-radius: 50%;
+
+            background: var(--primary);
+
+            box-shadow: 0 0 0 5px rgba(91, 140, 255, 0.1);
+        }
+
+        .timeline-date {
+            color: var(--primary-light);
+
+            font-size: 12px;
+            font-weight: 600;
+
+            margin-bottom: 7px;
+        }
+
+        .timeline h3 {
+            font-size: 19px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .timeline p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education {
+            background: var(--bg-secondary);
+        }
+
+        .education-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .education-card {
+            padding: 28px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 13px;
+        }
+
+        .education-card .year {
+            color: var(--primary);
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .education-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .education-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact-content h2 {
+            font-size: clamp(35px, 5vw, 55px);
+
+            letter-spacing: -2px;
+
+            margin-bottom: 18px;
+        }
+
+        .contact-content p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .contact-link {
+            padding: 11px 18px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            background: var(--card);
+            border-color: var(--primary);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 25px 0;
+
+            border-top: 1px solid var(--border);
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            text-align: center;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .section-title {
+                font-size: 31px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+        <div class="container">
+
+            <nav>
+
+                <a href="#home" class="logo">
+                    Ridho<span>.</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <div class="badge">
+                        <span class="status-dot"></span>
+                        Available for opportunities
+                    </div>
+
+                    <h1>
+                        Muhamad<br>
+                        <span>Ridho Ardian.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Full-Stack Web Developer focused on building
+                        scalable web applications, SaaS platforms,
+                        and modern digital products using Laravel,
+                        React, and modern web technologies.
+                    </p>
+
+                    <div class="buttons">
+
+                        <a
+                            href="#projects"
+                            class="btn btn-primary"
+                        >
+                            View My Projects
+                        </a>
+
+                        <a
+                            href="#contact"
+                            class="btn btn-secondary"
+                        >
+                            Contact Me
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section class="about" id="about">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-label">
+                        About Me
+                    </div>
+
+                    <h2 class="section-title">
+                        Building products, not just websites.
+                    </h2>
+
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="about-text">
+
+                        <p>
+                            Hello, I'm Muhamad Ridho Ardian,
+                            a Full-Stack Web Developer with an
+                            Informatics background.
+                        </p>
+
+                        <p>
+                            I enjoy designing and developing web
+                            applications from the frontend to the
+                            backend, including API development,
+                            database design, authentication,
+                            business logic, and deployment.
+                        </p>
+
+                        <p>
+                            I have worked on several projects,
+                            including SaaS management systems,
+                            Japanese language learning applications,
+                            and strategy games.
+                        </p>
+
+                    </div>
+
+                    <div class="about-info">
+
+                        <div class="info-card">
+                            <small>Role</small>
+                            <strong>Full-Stack Developer</strong>
+                        </div>
+
+                        <div class="info-card">
+                            <small>Specialization</small>
+                            <strong>Web Application</strong>
+                        </div>
+
+                        <div class="info-card">
+                            <small>Backend</small>
+                            <strong>Laravel / PHP</strong>
+                        </div>
+
+                        <div class="info-card">
+                            <small>Frontend</small>
+                            <strong>React / JavaScript</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SKILLS
+        ========================== -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-label">
+                        Skills
+                    </div>
+
+                    <h2 class="section-title">
+                        Technologies I work with.
+                    </h2>
+
+                    <p class="section-description">
+                        A combination of backend, frontend,
+                        database, API, and development tools
+                        used to build complete web applications.
+                    </p>
+
+                </div>
+
+                <div class="skills-grid">
+
+                    <div class="skill">
+                        <div class="skill-icon">⚡</div>
+                        <h3>Laravel</h3>
+                        <p>
+                            REST API, MVC, Eloquent,
+                            Authentication, Queue & Jobs.
+                        </p>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-icon">◈</div>
+                        <h3>React</h3>
+                        <p>
+                            Component-based UI and
+                            modern frontend applications.
+                        </p>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-icon">⌘</div>
+                        <h3>PHP</h3>
+                        <p>
+                            Object-oriented programming
+                            and backend development.
+                        </p>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-icon">▣</div>
+                        <h3>MySQL</h3>
+                        <p>
+                            Database design, relationships,
+                            indexes, and query optimization.
+                        </p>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-icon">↔</div>
+                        <h3>REST API</h3>
+                        <p>
+                            Designing APIs for web and
+                            mobile applications.
+                        </p>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-icon">◉</div>
+                        <h3>JavaScript</h3>
+                        <p>
+                            Modern JavaScript for interactive
+                            web applications.
+                        </p>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-icon">⌁</div>
+                        <h3>Git</h3>
+                        <p>
+                            Version control, branching,
+                            collaboration, and deployment.
+                        </p>
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-icon">☁</div>
+                        <h3>Cloud & Deployment</h3>
+                        <p>
+                            Web deployment, hosting,
+                            server configuration, and CDN.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+
+        <section class="projects" id="projects">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-label">
+                        Selected Projects
+                    </div>
+
+                    <h2 class="section-title">
+                        Things I've built.
+                    </h2>
+
+                    <p class="section-description">
+                        Some of my personal and development
+                        projects across SaaS, education,
+                        and gaming.
+                    </p>
+
+                </div>
+
+
+                <div class="projects-grid">
+
+
+                    <!-- PROJECT 1 -->
+
+                    <article class="project">
+
+                        <div class="project-image">
+                            🏢
+                        </div>
+
+                        <div class="project-content">
+
+                            <h3>
+                                LPK Management System
+                            </h3>
+
+                            <p>
+                                A management platform designed
+                                for training institutions to manage
+                                students, classes, attendance,
+                                schedules, payments, and other
+                                operational processes.
+                            </p>
+
+                            <div class="tags">
+
+                                <span class="tag">
+                                    Laravel
+                                </span>
+
+                                <span class="tag">
+                                    React
+                                </span>
+
+                                <span class="tag">
+                                    MySQL
+                                </span>
+
+                                <span class="tag">
+                                    REST API
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 2 -->
+
+                    <article class="project">
+
+                        <div class="project-image">
+                            🇯🇵
+                        </div>
+
+                        <div class="project-content">
+
+                            <h3>
+                                EdoGo
+                            </h3>
+
+                            <p>
+                                A Japanese language learning
+                                platform featuring hiragana,
+                                katakana, kanji, vocabulary,
+                                quizzes, writing practice,
+                                and speaking exercises.
+                            </p>
+
+                            <div class="tags">
+
+                                <span class="tag">
+                                    React
+                                </span>
+
+                                <span class="tag">
+                                    Laravel
+                                </span>
+
+                                <span class="tag">
+                                    API
+                                </span>
+
+                                <span class="tag">
+                                    Education
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 3 -->
+
+                    <article class="project">
+
+                        <div class="project-image">
+                            ⚔️
+                        </div>
+
+                        <div class="project-content">
+
+                            <h3>
+                                Imperium Dawn
+                            </h3>
+
+                            <p>
+                                A browser-based strategy game
+                                focused on resource management,
+                                development, strategy, and
+                                player progression.
+                            </p>
+
+                            <div class="tags">
+
+                                <span class="tag">
+                                    Laravel
+                                </span>
+
+                                <span class="tag">
+                                    PHP
+                                </span>
+
+                                <span class="tag">
+                                    MySQL
+                                </span>
+
+                                <span class="tag">
+                                    Game
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             EXPERIENCE
+        ========================== -->
+
+        <section id="experience">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-label">
+                        Experience
+                    </div>
+
+                    <h2 class="section-title">
+                        My development journey.
+                    </h2>
+
+                </div>
+
+
+                <div class="timeline">
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-date">
+                            PRESENT
+                        </div>
+
+                        <h3>
+                            Freelance Full-Stack Developer
+                        </h3>
+
+                        <div class="timeline-company">
+                            Independent
+                        </div>
+
+                        <p>
+                            Designing and developing web
+                            applications, SaaS products,
+                            APIs, and digital products
+                            using modern technologies.
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-date">
+                            PROJECT EXPERIENCE
+                        </div>
+
+                        <h3>
+                            SaaS & Web Application Development
+                        </h3>
+
+                        <div class="timeline-company">
+                            Personal Projects
+                        </div>
+
+                        <p>
+                            Building management systems,
+                            learning platforms, APIs,
+                            authentication systems,
+                            database architectures,
+                            and application infrastructure.
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-date">
+                            PROJECT EXPERIENCE
+                        </div>
+
+                        <h3>
+                            Game Development
+                        </h3>
+
+                        <div class="timeline-company">
+                            Imperium Dawn
+                        </div>
+
+                        <p>
+                            Developing a browser-based strategy
+                            game and implementing backend logic,
+                            player systems, resources,
+                            and game mechanics.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             EDUCATION
+        ========================== -->
+
+        <section class="education" id="education">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-label">
+                        Education
+                    </div>
+
+                    <h2 class="section-title">
+                        Academic background.
+                    </h2>
+
+                </div>
+
+
+                <div class="education-grid">
+
+
+                    <div class="education-card">
+
+                        <div class="year">
+                            BACHELOR'S DEGREE
+                        </div>
+
+                        <h3>
+                            Informatics
+                        </h3>
+
+                        <p>
+                            Universitas Siber Asia
+                        </p>
+
+                    </div>
+
+
+                    <div class="education-card">
+
+                        <div class="year">
+                            DIPLOMA
+                        </div>
+
+                        <h3>
+                            Information Technology
+                        </h3>
+
+                        <p>
+                            Universitas Pakuan
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section class="contact" id="contact">
+
+            <div class="container">
+
+                <div class="contact-content">
+
+                    <div class="section-label">
+                        Contact
+                    </div>
+
+                    <h2>
+                        Let's build something together.
+                    </h2>
+
+                    <p>
+                        I'm open to opportunities, freelance
+                        projects, collaborations, and interesting
+                        software development challenges.
+                    </p>
+
+                    <div class="contact-links">
+
+                        <!-- GANTI LINK DI BAWAH -->
+
+                        <a
+                            href="mailto:your.email@example.com"
+                            class="contact-link"
+                        >
+                            ✉ Email
+                        </a>
+
+                        <a
+                            href="https://github.com/"
+                            target="_blank"
+                            class="contact-link"
+                        >
+                            GitHub
+                        </a>
+
+                        <a
+                            href="https://linkedin.com/"
+                            target="_blank"
+                            class="contact-link"
+                        >
+                            LinkedIn
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            © 2026 Muhamad Ridho Ardian.
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

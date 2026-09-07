@@ -1,425 +1,640 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhamad Ridho Ardian — Portofolio</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <style>
-        /* =====================================================
-           VARIABLES & COLORS (Navy & Cream)
-        ===================================================== */
-        :root {
-            --navy-dark: #0D1B2A;
-            --navy-medium: #1B263B;
-            --navy-light: #415A77;
-            --cream-bg: #FDF8F0; /* Cream Lembut */
-            --cream-card: #FFFFFF;
-            --accent-gold: #A68A56;
-            --text-dark: #0D1B2A;
-            --text-muted: #576574;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--cream-bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, .logo {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .container {
-            width: min(1200px, 90%);
-            margin: 0 auto;
-        }
-
-        /* =====================================================
-           ANIMASI SCROLL (Reveal Effect)
-        ===================================================== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* =====================================================
-           NAVBAR
-        ===================================================== */
-        header {
-            position: fixed;
-            top: 0; width: 100%; z-index: 1000;
-            background: rgba(13, 27, 42, 0.95);
-            padding: 20px 0;
-            border-bottom: 1px solid var(--accent-gold);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo { color: var(--cream-bg); font-size: 24px; text-decoration: none; }
-        .logo span { color: var(--accent-gold); }
-
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-        }
-        .nav-links a:hover { color: var(--accent-gold); }
-
-        /* =====================================================
-           HERO SECTION
-        ===================================================== */
-        .hero {
-            height: 100vh;
-            background: var(--navy-dark);
-            color: var(--cream-bg);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            bottom: 0; right: 0;
-            width: 40%; height: 80%;
-            background: var(--navy-medium);
-            clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
-            z-index: 0;
-            opacity: 0.5;
-        }
-
-        .hero-content { position: relative; z-index: 1; max-width: 800px; }
-        .hero h1 { font-size: clamp(40px, 8vw, 80px); line-height: 1.1; margin-bottom: 20px; }
-        .hero h1 span { color: var(--accent-gold); }
-        .hero p { font-size: 1.2rem; color: #cbd5e0; margin-bottom: 30px; max-width: 600px; }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background: var(--accent-gold);
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: var(--transition);
-        }
-        .btn:hover { background: #8e7345; transform: translateY(-3px); }
-
-        /* =====================================================
-           SECTION GENERAL
-        ===================================================== */
-        section { padding: 100px 0; }
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            position: relative;
-            display: inline-block;
-        }
-        .section-title::after {
-            content: "";
-            position: absolute;
-            left: 0; bottom: -10px;
-            width: 50px; height: 3px;
-            background: var(--accent-gold);
-        }
-
-        /* =====================================================
-           PROJECT SLIDESHOW
-        ===================================================== */
-        .slider-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slide {
-            min-width: 100%;
-            background: var(--navy-medium);
-            color: white;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .slide-img {
-            background: var(--navy-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            min-height: 400px;
-        }
-
-        .slide-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
-        .slide-content h3 { font-size: 2rem; margin-bottom: 15px; color: var(--accent-gold); }
-        
-        .slider-nav {
-            position: absolute;
-            bottom: 20px; right: 20px;
-            display: flex; gap: 10px;
-        }
-        .nav-btn {
-            background: white; border: none; width: 40px; height: 40px;
-            cursor: pointer; border-radius: 50%; font-weight: bold;
-        }
-
-        /* =====================================================
-           EXPERIENCE & CV STYLE
-        ===================================================== */
-        .cv-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px;
-        }
-
-        .cv-sidebar {
-            background: var(--navy-dark);
-            color: white;
-            padding: 40px;
-            border-radius: 12px;
-        }
-
-        .cv-main { background: white; padding: 40px; border-radius: 12px; }
-
-        .timeline-item {
-            margin-bottom: 30px;
-            padding-left: 20px;
-            border-left: 2px solid var(--accent-gold);
-        }
-        .timeline-date { color: var(--accent-gold); font-weight: 700; font-size: 0.9rem; }
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-        footer {
-            background: var(--navy-dark);
-            color: white;
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .cv-grid, .slide { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .hero h1 { font-size: 40px; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Ridho<span>.</span></a>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- HERO -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="reveal">Web Products<br><span>Built with Precision.</span></h1>
-                    <p class="reveal">Halo, saya Muhamad Ridho Ardian. Seorang Full-Stack Developer yang berfokus pada estetika Navy dan fungsionalitas modern.</p>
-                    <a href="#projects" class="btn reveal">Lihat Portofolio</a>
-                </div>
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"outline":"#8c909f","secondary":"#7bd0ff","surface-bright":"#2f394c","tertiary":"#4edea3","tertiary-fixed":"#6ffbbe","on-error":"#690005","outline-variant":"#424754","inverse-on-surface":"#263143","tertiary-container":"#00a572","surface-container-highest":"#2b3547","on-surface-variant":"#c2c6d6","primary-fixed":"#d8e2ff","on-tertiary-fixed-variant":"#005236","on-primary-fixed":"#001a42","background":"#081324","on-secondary-fixed":"#001e2c","surface-container-high":"#202a3c","primary":"#adc6ff","on-error-container":"#ffdad6","on-primary":"#002e6a","secondary-container":"#00a6e0","surface-container-low":"#111c2d","secondary-fixed":"#c4e7ff","error":"#ffb4ab","on-background":"#d8e3fb","on-secondary":"#00354a","inverse-surface":"#d8e3fb","primary-fixed-dim":"#adc6ff","tertiary-fixed-dim":"#4edea3","on-tertiary":"#003824","on-primary-fixed-variant":"#004395","on-primary-container":"#00285d","inverse-primary":"#005ac2","surface-container-lowest":"#040e1f","on-tertiary-container":"#00311f","secondary-fixed-dim":"#7bd0ff","error-container":"#93000a","surface-dim":"#081324","surface-variant":"#2b3547","on-secondary-container":"#00374d","primary-container":"#4d8eff","surface-tint":"#adc6ff","on-tertiary-fixed":"#002113","on-secondary-fixed-variant":"#004c69","on-surface":"#d8e3fb","surface-container":"#152031","surface":"#081324"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-2xs":"0.25rem","space-xl":"2rem","space-xs":"0.5rem","space-lg":"1.5rem","space-sm":"0.75rem","gutter-mobile":"1rem","space-md":"1rem","max-container":"72rem","space-3xl":"4.5rem","space-2xl":"3rem","space-4xl":"6rem","gutter-desktop":"1.5rem"},"fontFamily":{"label-md":["Inter"],"headline-lg-mobile":["Inter"],"code-snippet":["Inter"],"display":["Inter"],"body-sm":["Inter"],"label-sm":["Inter"],"headline-lg":["Inter"],"headline-md":["Inter"],"body-md":["Inter"],"display-mobile":["Inter"],"body-lg":["Inter"],"headline-sm":["Inter"]},"fontSize":{"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"code-snippet":["13px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"display":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"display-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"-0.05em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-1 font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors" data-path="about" href="#"><span class="tracking-tight">Ridho</span><span class="h-2 w-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(123,208,255,0.8)]"></span></a><div class="hidden xl:flex items-center gap-space-xs px-space-xs py-1 rounded-full bg-surface-container-high/60"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Available for freelance &amp; opportunities</span></div></div><nav class="hidden md:flex items-center gap-1 px-space-xs py-1 rounded-xl bg-surface-container/50" data-active-classes="bg-surface-container-high text-on-surface font-medium rounded-lg"><a aria-current="page" class="px-space-xs py-1 transition-all bg-surface-container-high text-on-surface font-medium rounded-lg" data-path="about" href="#">About</a><a class="px-space-xs py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="skills" href="#">Skills</a><a class="px-space-xs py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="projects" href="#">Projects</a><a class="px-space-xs py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="experience" href="#">Experience</a><a class="px-space-xs py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="education" href="#">Education</a><a class="px-space-xs py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-sm"><a class="hidden sm:inline-flex items-center justify-center h-9 px-space-md rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold hover:bg-primary hover:text-on-primary shadow-[0_0_16px_rgba(77,142,255,0.25)] transition-all" data-path="contact" href="#">Let's Connect</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 min-h-screen bg-background"><div class="flex flex-col w-full selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Light Orbs (Parent Relative) -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute top-12 left-1/2 -translate-x-1/2 w-[680px] h-[360px] bg-gradient-to-tr from-primary-container/20 via-secondary/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-[48rem] right-10 w-[420px] h-[320px] bg-tertiary-container/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- 1. HERO SECTION -->
+<section class="max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop pt-space-2xl pb-space-3xl flex flex-col items-center text-center">
+<!-- Top Status Pill -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container-high/80 backdrop-blur-md shadow-md mb-space-lg">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary"></span>
+</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Available for freelance projects &amp; opportunities</span>
+</div>
+<!-- Headline -->
+<h1 class="font-display text-display tracking-tight text-on-surface max-w-4xl">
+        I build web products <br class="hidden sm:inline"/>
+<span class="bg-gradient-to-r from-secondary via-primary to-tertiary-fixed bg-clip-text text-transparent">from idea to reality.</span>
+</h1>
+<!-- Bio Paragraph -->
+<p class="mt-space-lg max-w-2xl font-body-lg text-body-lg text-on-surface-variant">
+        I am <span class="text-on-surface font-medium">Muhamad Ridho Ardian</span>, a Full-Stack Web Developer focused on turning ideas into reliable, practical, and scalable web applications. I work across the stack — from interfaces and APIs to databases, business logic, and deployment.
+      </p>
+<!-- CTA Buttons -->
+<div class="mt-space-xl flex flex-wrap items-center justify-center gap-space-md">
+<a class="group inline-flex items-center gap-space-xs h-11 px-space-lg rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-secondary transition-all shadow-[0_0_24px_rgba(173,198,255,0.3)]" href="#projects">
+<span>View My Work</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-space-xs h-11 px-space-lg rounded-lg bg-surface-container-high/60 text-secondary font-label-md text-label-md font-semibold hover:bg-surface-container-highest hover:text-on-surface transition-all" href="#contact">
+<span class="material-symbols-outlined text-[18px]">chat_bubble_outline</span>
+<span>Let's Talk</span>
+</a>
+</div>
+<!-- Quick Metrics Bar -->
+<div class="mt-space-3xl w-full grid grid-cols-2 md:grid-cols-4 gap-space-md pt-space-xl">
+<div class="flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container/40 backdrop-blur-md shadow-sm">
+<span class="font-headline-lg text-headline-lg text-secondary font-bold">3+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Major Case Studies</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container/40 backdrop-blur-md shadow-sm">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">E2E</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Full-Stack Architecture</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container/40 backdrop-blur-md shadow-sm">
+<span class="font-headline-lg text-headline-lg text-tertiary-fixed font-bold">Modern</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Laravel &amp; React Ecosystem</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container/40 backdrop-blur-md shadow-sm">
+<span class="font-headline-lg text-headline-lg text-secondary-fixed font-bold">100%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Production Ready</span>
+</div>
+</div>
+</section>
+</div>
+<!-- 2. ABOUT SECTION -->
+<section class="w-full bg-surface-container-lowest/70 py-space-3xl relative" id="about">
+<div class="max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center">
+<!-- Left Column: Storytelling -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-space-xs">
+<span class="h-1.5 w-6 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest font-semibold">About Me</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+            More than writing code. <br/>
+<span class="text-primary">I build products.</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            I approach software engineering with a product-first mindset. Building software is never merely about syntax or frameworks; it starts with diagnosing the fundamental problem, dissecting operational friction, and structuring clean data paradigms.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            From architecting relational database schemas and designing predictable RESTful endpoints to crafting fluid, responsive interfaces and executing CI/CD server deployments, I guarantee complete operational integrity at every layer of the product lifecycle.
+          </p>
+<!-- Flow Indicator Micro-Graphic -->
+<div class="mt-space-sm p-space-md rounded-xl bg-surface-container-low/70 flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface font-medium">
+<span class="material-symbols-outlined text-secondary text-[18px]">psychology</span>
+<span>1. Discovery</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">trending_flat</span>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface font-medium">
+<span class="material-symbols-outlined text-primary text-[18px]">database</span>
+<span>2. Schema Design</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">trending_flat</span>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface font-medium">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">code</span>
+<span>3. Full-Stack Dev</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">trending_flat</span>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface font-medium">
+<span class="material-symbols-outlined text-secondary-fixed text-[18px]">cloud_done</span>
+<span>4. Production</span>
+</div>
+</div>
+</div>
+<!-- Right Column: 4 Spec Cards -->
+<div class="lg:col-span-5 grid grid-cols-2 gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container/60 backdrop-blur-md shadow-md flex flex-col gap-space-2xs group hover:bg-surface-container-high transition-all">
+<div class="w-9 h-9 rounded-lg bg-secondary/15 flex items-center justify-center text-secondary mb-space-2xs">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Role</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Full-Stack Dev</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Engineering end-to-end web apps</span>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container/60 backdrop-blur-md shadow-md flex flex-col gap-space-2xs group hover:bg-surface-container-high transition-all">
+<div class="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center text-primary mb-space-2xs">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Focus</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Digital Products</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">SaaS, management, UI/UX</span>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container/60 backdrop-blur-md shadow-md flex flex-col gap-space-2xs group hover:bg-surface-container-high transition-all">
+<div class="w-9 h-9 rounded-lg bg-tertiary/15 flex items-center justify-center text-tertiary mb-space-2xs">
+<span class="material-symbols-outlined text-[20px]">dns</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Backend</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Laravel / PHP</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">APIs, auth, queues &amp; DB logic</span>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container/60 backdrop-blur-md shadow-md flex flex-col gap-space-2xs group hover:bg-surface-container-high transition-all">
+<div class="w-9 h-9 rounded-lg bg-secondary-fixed/15 flex items-center justify-center text-secondary-fixed mb-space-2xs">
+<span class="material-symbols-outlined text-[20px]">web</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Frontend</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">React / JS</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Stateful modular client apps</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. SKILLS & TECH STACK SECTION -->
+<section class="w-full py-space-3xl max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop" id="skills">
+<div class="flex flex-col items-center text-center max-w-2xl mx-auto mb-space-2xl">
+<div class="inline-flex items-center gap-space-xs mb-space-xs">
+<span class="h-1.5 w-6 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">Skills &amp; Tech Stack</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+        Tools are important. <br/>
+<span class="text-secondary">Solving the problem is more important.</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+        I use modern web technologies to build applications that are maintainable, functional, and ready to grow.
+      </p>
+</div>
+<!-- 8 Tech Cards Responsive Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- 1: Laravel -->
+<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-10 h-10 rounded-lg bg-error-container/40 text-error flex items-center justify-center font-bold font-code-snippet text-code-snippet">
+              LV
             </div>
-        </section>
-
-        <!-- ABOUT -->
-        <section id="about">
-            <div class="container">
-                <div class="cv-grid">
-                    <div class="cv-sidebar reveal">
-                        <h2 style="color: var(--accent-gold); margin-bottom: 20px;">Skills</h2>
-                        <ul style="list-style: none; line-height: 2;">
-                            <li>• Laravel / PHP</li>
-                            <li>• React.js / JS</li>
-                            <li>• MySQL Database</li>
-                            <li>• RESTful API</li>
-                            <li>• UI/UX Design</li>
-                        </ul>
-                    </div>
-                    <div class="cv-main reveal">
-                        <h2 class="section-title">Tentang Saya</h2>
-                        <p>Saya adalah pengembang perangkat lunak yang menggabungkan latar belakang Informatika dengan semangat kreatif. Saya percaya bahwa setiap baris kode harus memiliki tujuan untuk memecahkan masalah nyata dengan antarmuka yang bersih.</p>
-                        <br>
-                        <p>Lulusan Informatika yang berdedikasi untuk terus belajar teknologi terbaru dalam ekosistem pengembangan web.</p>
-                    </div>
-                </div>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Backend</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">Laravel</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Application backends, REST APIs, authentication, background queues, and database-driven systems.
+          </p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Core Competency</span>
+</div>
+</div>
+<!-- 2: React -->
+<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-10 h-10 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center font-bold font-code-snippet text-code-snippet">
+              RC
             </div>
-        </section>
-
-        <!-- PROJECTS SLIDESHOW -->
-        <section id="projects" style="background: #f0ebe3;">
-            <div class="container">
-                <h2 class="section-title reveal">Selected Projects</h2>
-                
-                <div class="slider-container reveal">
-                    <div class="slides" id="slider">
-                        <!-- Project 1 -->
-                        <div class="slide">
-                            <div class="slide-img">🏢</div>
-                            <div class="slide-content">
-                                <h3>LPK Management System</h3>
-                                <p>Sistem manajemen operasional terpadu untuk lembaga pelatihan kerja. Mengelola data siswa, jadwal, dan administrasi.</p>
-                                <p style="margin-top: 15px; font-weight: bold;">Tech: Laravel, React, MySQL</p>
-                            </div>
-                        </div>
-                        <!-- Project 2 -->
-                        <div class="slide">
-                            <div class="slide-img">🇯🇵</div>
-                            <div class="slide-content">
-                                <h3>EdoGo Education</h3>
-                                <p>Platform pembelajaran Bahasa Jepang interaktif dengan sistem kurikulum berjenjang.</p>
-                                <p style="margin-top: 15px; font-weight: bold;">Tech: React, REST API</p>
-                            </div>
-                        </div>
-                        <!-- Project 3 -->
-                        <div class="slide">
-                            <div class="slide-img">⚔️</div>
-                            <div class="slide-content">
-                                <h3>Imperium Dawn</h3>
-                                <p>Game strategi berbasis browser yang mengutamakan manajemen sumber daya dan progresi pemain.</p>
-                                <p style="margin-top: 15px; font-weight: bold;">Tech: PHP, MySQL</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="slider-nav">
-                        <button class="nav-btn" onclick="prevSlide()">❮</button>
-                        <button class="nav-btn" onclick="nextSlide()">❯</button>
-                    </div>
-                </div>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Frontend</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">React</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Responsive interfaces, reusable components, interactive client-side logic, and state management.
+          </p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Core Competency</span>
+</div>
+</div>
+<!-- 3: PHP -->
+<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary/15 text-primary flex items-center justify-center font-bold font-code-snippet text-code-snippet">
+              PHP
             </div>
-        </section>
-
-        <!-- EXPERIENCE -->
-        <section id="experience">
-            <div class="container">
-                <h2 class="section-title reveal">Pengalaman & Pendidikan</h2>
-                
-                <div class="cv-main reveal">
-                    <div class="timeline-item">
-                        <div class="timeline-date">SEKARANG</div>
-                        <h3>Freelance Full-Stack Developer</h3>
-                        <p>Membangun solusi digital kustom untuk berbagai klien, mulai dari landing page hingga sistem ERP kecil.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">2023 - 2024</div>
-                        <h3>Informatics Degree</h3>
-                        <p>Universitas Siber Asia - Fokus pada pengembangan web dan arsitektur perangkat lunak.</p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">2020 - 2023</div>
-                        <h3>Diploma Information Technology</h3>
-                        <p>Universitas Pakuan - Dasar pemrograman, basis data, dan jaringan.</p>
-                    </div>
-                </div>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Language</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">PHP</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Structured backend applications, object-oriented design, robust server-side processing, and security.
+          </p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>OOP Architecture</span>
+</div>
+</div>
+<!-- 4: MySQL -->
+<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-10 h-10 rounded-lg bg-tertiary/15 text-tertiary flex items-center justify-center font-bold font-code-snippet text-code-snippet">
+              SQL
             </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact" style="background: var(--navy-dark); color: white; text-align: center;">
-            <div class="container">
-                <h2 class="reveal" style="font-size: 3rem; margin-bottom: 20px;">Mari Berkolaborasi</h2>
-                <p class="reveal" style="margin-bottom: 40px; color: #ccc;">Punya ide menarik? Mari kita ubah menjadi kenyataan.</p>
-                <div class="reveal">
-                    <a href="mailto:email@kamu.com" class="btn">Email Saya</a>
-                </div>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Database</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">MySQL</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Relational database design, normal forms, foreign relationships, indexing, and query optimization.
+          </p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">storage</span>
+<span>Relational Schema</span>
+</div>
+</div>
+<!-- 5: REST API -->
+<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/20 text-secondary-fixed flex items-center justify-center font-bold font-code-snippet text-code-snippet">
+              API
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Muhamad Ridho Ardian. Navy & Cream Edition.</p>
-    </footer>
-
-    <script>
-        /* =====================================================
-           SLIDESHOW LOGIC
-        ===================================================== */
-        let currentSlide = 0;
-        const slider = document.getElementById('slider');
-        const totalSlides = document.querySelectorAll('.slide').length;
-
-        function updateSlider() {
-            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateSlider();
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            updateSlider();
-        }
-
-        // Auto slide setiap 5 detik
-        setInterval(nextSlide, 5000);
-
-        /* =====================================================
-           SCROLL REVEAL ANIMATION
-        ===================================================== */
-        const revealElements = document.querySelectorAll('.reveal');
-        
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-    </script>
-</body>
-</html>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Architecture</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">REST API</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Structured endpoints, standardized payloads, status codes, token auth, and reliable multi-interface conduits.
+          </p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">sync_alt</span>
+<span>Contracts &amp; JSON</span>
+</div>
+</div>
+<!-- 6: JavaScript -->
+<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed/15 text-tertiary-fixed flex items-center justify-center font-bold font-code-snippet text-code-snippet">
+              JS
+            </div>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Language</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">JavaScript</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Modern ES6+, async/await asynchronous flows, DOM manipulation, and dynamic web experiences.
+          </p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">javascript</span>
+<span>ES6+ Standard</span>
+</div>
+</div>
+<!-- 7: Git -->
+<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed/15 text-primary-fixed flex items-center justify-center font-bold font-code-snippet text-code-snippet">
+              GIT
+            </div>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Workflow</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">Git</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Version control, collaborative branching strategies, commit disciplines, and CI/CD pipeline foundations.
+          </p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">fork_right</span>
+<span>Version Control</span>
+</div>
+</div>
+<!-- 8: Deployment -->
+<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest text-secondary-fixed flex items-center justify-center font-bold font-code-snippet text-code-snippet">
+              OPS
+            </div>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">DevOps</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">Deployment</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Server provisioning, Nginx/Apache configuration, DNS management, and scalable cloud hosting infrastructure.
+          </p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">cloud</span>
+<span>Server Ops</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. FEATURED PROJECTS SECTION -->
+<section class="w-full bg-surface-container-lowest/80 py-space-3xl relative" id="projects">
+<div class="max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-2xl gap-space-md">
+<div>
+<div class="inline-flex items-center gap-space-xs mb-space-xs">
+<span class="h-1.5 w-6 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-widest font-semibold">Selected Work</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+            Problems I've turned <span class="text-primary">into products.</span>
+</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+          A showcase of practical engineering applications focusing on operational clarity, education, and simulation logic.
+        </p>
+</div>
+<!-- Project Showcase List -->
+<div class="flex flex-col gap-space-2xl">
+<!-- Project 01: LPK Management System -->
+<div class="rounded-2xl bg-surface-container/60 backdrop-blur-xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
+<div class="lg:col-span-7 relative h-72 lg:h-auto min-h-[300px] overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern enterprise management SaaS software dashboard on an ultra-wide monitor, showing data analytics charts, student roster tables, registration metrics, dark mode UI with electric blue and emerald accents, sleek digital workspace atmosphere, high resolution 3D render." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfoYP9TvnPnTNixitWPPxGvZI1Bubps7DyCCrBuQiNzN2mepnsBi4qC-KNZJkvg40ktaJKTnww5fQJsKRvNm-EXePopPruuFkomQ5q1YMQ4MeWGE3JXN7_8m4xBUjjfopo8EXJZXopxBZX5_EeqgFhntEMRTiCTe4t9yEDqp__DyRtUOM470vTbv3pGxydNVZyNI-IJBBiS3azcywnSO27lGOAN-b1fBWFuv0NsKdVOKOUMjXWpqI"/>
+<div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-surface-container via-surface-container/30 to-transparent"></div>
+<div class="absolute top-4 left-4 px-space-sm py-1 rounded-md bg-surface-container-lowest/80 backdrop-blur-md font-code-snippet text-code-snippet text-secondary">
+              PROJECT 01 / MANAGEMENT
+            </div>
+</div>
+<div class="lg:col-span-5 p-space-xl flex flex-col justify-between">
+<div>
+<div class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-md bg-secondary/10 text-secondary font-label-sm text-label-sm font-medium mb-space-sm">
+<span class="material-symbols-outlined text-[14px]">architecture</span>
+<span>Turning administrative processes into a structured digital system</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-space-xs">
+                LPK Management System
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+                A management platform designed to simplify the daily operations of training institutions. Features automated student enrolment records, batch scheduling, payment auditing, and instructor role delegation.
+              </p>
+<!-- Badges -->
+<div class="flex flex-wrap gap-space-2xs mb-space-lg">
+<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">Laravel</span>
+<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">React</span>
+<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">MySQL</span>
+<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">REST API</span>
+</div>
+</div>
+<!-- Links -->
+<div class="flex items-center gap-space-md pt-space-md">
+<a class="inline-flex items-center gap-space-2xs font-label-md text-label-md text-primary hover:text-secondary font-semibold transition-colors" href="#contact">
+<span>View Case Study</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-space-2xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#contact">
+<span>Live Demo</span>
+<span class="material-symbols-outlined text-[16px]">launch</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 02: EdoGo -->
+<div class="rounded-2xl bg-surface-container/60 backdrop-blur-xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
+<div class="lg:col-span-7 lg:order-2 relative h-72 lg:h-auto min-h-[300px] overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An educational Japanese language web app UI displayed on modern mobile and laptop mockups, exhibiting Hiragana flashcards, interactive grammar quizzes, progress telemetry, dark slate and vibrant cyan neon glow, clean minimalistic typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbb0RbKepDqA3-R-5_w3TqLdgv3AVAd0V8evqSBuYZjd5nmOc2QzX4jVjfxQhBJhYMPfTVzJ7vtZZ7OBG2G5DTfn3amuMGdY_ho7XB7Sptl4KQqxwa7_-YMcFLY_h8Gi8Su2yogrX-a8Y11UB4Rroys1YoUOg2KGBuQ6NSNSMd5yK0xMqHYFIn01OTqK8BDseWJNYfZhXFk8fl42rtSvN5kETsK66ANDUExWPdX6mixkW-8r8Pdzg"/>
+<div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-l from-surface-container via-surface-container/30 to-transparent"></div>
+<div class="absolute top-4 left-4 px-space-sm py-1 rounded-md bg-surface-container-lowest/80 backdrop-blur-md font-code-snippet text-code-snippet text-tertiary-fixed">
+              PROJECT 02 / EDUCATION
+            </div>
+</div>
+<div class="lg:col-span-5 lg:order-1 p-space-xl flex flex-col justify-between">
+<div>
+<div class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-md bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-medium mb-space-sm">
+<span class="material-symbols-outlined text-[14px]">school</span>
+<span>Building an educational product around a real learning experience</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-space-xs">
+                EdoGo
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+                A Japanese language learning platform designed around structured and interactive language practice. Includes spaced repetition drills, vocabulary retention telemetry, and interactive kanji tracing components.
+              </p>
+<!-- Badges -->
+<div class="flex flex-wrap gap-space-2xs mb-space-lg">
+<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">React</span>
+<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">Laravel</span>
+<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">REST API</span>
+<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">Education</span>
+</div>
+</div>
+<!-- Links -->
+<div class="flex items-center gap-space-md pt-space-md">
+<a class="inline-flex items-center gap-space-2xs font-label-md text-label-md text-tertiary font-semibold hover:text-tertiary-fixed transition-colors" href="#contact">
+<span>View Details</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-space-2xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#contact">
+<span>Preview App</span>
+<span class="material-symbols-outlined text-[16px]">launch</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 03: Imperium Dawn -->
+<div class="rounded-2xl bg-surface-container/60 backdrop-blur-xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
+<div class="lg:col-span-7 relative h-72 lg:h-auto min-h-[300px] overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Tactical isometric browser game user interface showing resource production panels, sci-fi planetary colony map, military conquest queue, sci-fi deep space aesthetic, blue and amber status indicators, detailed game engineering telemetry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQSUC3RtL02Psry3mO92bxJuEExYHc3O5WOfUZ8bfNMUgfglwd4f0jNt5mrN_5t1m33zYXA9zvaF_IYE_DC7-I-0hlnZZLgxpdNW7xbNR9v_QyaNoTFA6tNhdLut9EfVUhFV33_uldTFCDmz34qNS3CRd6aVmfGcPxV5lCJ6xdnVRL19DzvblcgrjRnYN9QP86Svu2V0R5GVXdJFo9b6mNHJridMYoPTPdnhxoTA_abLTbzRP6bo0"/>
+<div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-surface-container via-surface-container/30 to-transparent"></div>
+<div class="absolute top-4 left-4 px-space-sm py-1 rounded-md bg-surface-container-lowest/80 backdrop-blur-md font-code-snippet text-code-snippet text-secondary-fixed">
+              PROJECT 03 / GAME
+            </div>
+</div>
+<div class="lg:col-span-5 p-space-xl flex flex-col justify-between">
+<div>
+<div class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-md bg-primary/10 text-primary font-label-sm text-label-sm font-medium mb-space-sm">
+<span class="material-symbols-outlined text-[14px]">sports_esports</span>
+<span>Designing backend systems and game logic for player progression</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-space-xs">
+                Imperium Dawn
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+                A browser-based strategy game where players manage economic resources, develop their planetary empire, and make strategic decisions. Implements high-throughput tick rate engines and transactional state persistence.
+              </p>
+<!-- Badges -->
+<div class="flex flex-wrap gap-space-2xs mb-space-lg">
+<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">Laravel</span>
+<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">PHP</span>
+<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">MySQL</span>
+<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">Game Mechanics</span>
+</div>
+</div>
+<!-- Links -->
+<div class="flex items-center gap-space-md pt-space-md">
+<a class="inline-flex items-center gap-space-2xs font-label-md text-label-md text-primary hover:text-secondary font-semibold transition-colors" href="#contact">
+<span>Explore System Architecture</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. EXPERIENCE & TIMELINE SECTION -->
+<section class="w-full py-space-3xl max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop" id="experience">
+<div class="flex flex-col items-center text-center max-w-2xl mx-auto mb-space-2xl">
+<div class="inline-flex items-center gap-space-xs mb-space-xs">
+<span class="h-1.5 w-6 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest font-semibold">Experience</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+        From ideas to <span class="text-secondary">working software.</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+        A timeline of hands-on software engineering, technical ownership, and production-ready implementations.
+      </p>
+</div>
+<!-- Vertical Timeline -->
+<div class="max-w-3xl mx-auto relative pl-6 md:pl-8 flex flex-col gap-space-xl">
+<!-- Background Vertical Accent Line -->
+<div class="absolute left-2.5 md:left-3.5 top-3 bottom-3 w-0.5 bg-surface-container-highest"></div>
+<!-- Item 1: Freelance -->
+<div class="relative flex items-start gap-space-md group">
+<div class="absolute -left-6 md:-left-8 mt-1.5 w-6 h-6 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="h-3 w-3 rounded-full bg-tertiary shadow-[0_0_12px_rgba(78,222,163,0.8)]"></span>
+</div>
+<div class="w-full p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md shadow-sm group-hover:bg-surface-container-high transition-all">
+<div class="flex flex-wrap items-center justify-between gap-space-xs mb-space-2xs">
+<span class="font-label-sm text-label-sm text-tertiary font-semibold uppercase tracking-wider">Present</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Independent</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+            Freelance Full-Stack Developer
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
+            Designing and developing web applications, SaaS products, APIs, and digital products across frontend, backend, databases, and deployment. Working closely with founders to translate business objectives into reliable codebases.
+          </p>
+</div>
+</div>
+<!-- Item 2: SaaS & Web App -->
+<div class="relative flex items-start gap-space-md group">
+<div class="absolute -left-6 md:-left-8 mt-1.5 w-6 h-6 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(173,198,255,0.6)]"></span>
+</div>
+<div class="w-full p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md shadow-sm group-hover:bg-surface-container-high transition-all">
+<div class="flex flex-wrap items-center justify-between gap-space-xs mb-space-2xs">
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Project Experience</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Personal Projects</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+            SaaS &amp; Web Application Development
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
+            Building management platforms, authentication systems, complex business logic, database architectures, and end-to-end user workflows. Focus on structured code maintainability and testability.
+          </p>
+</div>
+</div>
+<!-- Item 3: Browser Game Development -->
+<div class="relative flex items-start gap-space-md group">
+<div class="absolute -left-6 md:-left-8 mt-1.5 w-6 h-6 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="h-2.5 w-2.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(123,208,255,0.6)]"></span>
+</div>
+<div class="w-full p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md shadow-sm group-hover:bg-surface-container-high transition-all">
+<div class="flex flex-wrap items-center justify-between gap-space-xs mb-space-2xs">
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Project Experience</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Imperium Dawn</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+            Browser Game Development
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
+            Developing browser-based strategy game systems featuring backend-driven game mechanics, economic resource allocation loops, and database-persisted player progression with state consistency.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. EDUCATION SECTION -->
+<section class="w-full bg-surface-container-lowest/70 py-space-3xl relative" id="education">
+<div class="max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop">
+<div class="flex flex-col items-center text-center max-w-2xl mx-auto mb-space-2xl">
+<div class="inline-flex items-center gap-space-xs mb-space-xs">
+<span class="h-1.5 w-6 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">Academic Foundation</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+          The foundation <span class="text-primary">behind the code.</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+          Computer Science principles, algorithmic thinking, and software engineering methodologies.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg max-w-4xl mx-auto">
+<!-- Degree 1 -->
+<div class="p-space-xl rounded-2xl bg-surface-container/60 backdrop-blur-md shadow-md flex flex-col justify-between hover:bg-surface-container-high transition-all">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-space-xs py-1 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-semibold uppercase">
+                Bachelor's Degree
+              </span>
+<span class="material-symbols-outlined text-secondary text-[22px]">school</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">
+              Informatics
+            </h3>
+<p class="font-body-lg text-body-lg text-secondary font-medium mt-1">
+              Universitas Siber Asia
+            </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm leading-relaxed">
+              Specializing in advanced software engineering, distributed computing architectures, algorithms, data structures, and enterprise software engineering patterns.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-xs flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified</span>
+<span>Computer Science &amp; Software Systems</span>
+</div>
+</div>
+<!-- Degree 2 -->
+<div class="p-space-xl rounded-2xl bg-surface-container/60 backdrop-blur-md shadow-md flex flex-col justify-between hover:bg-surface-container-high transition-all">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-space-xs py-1 rounded bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold uppercase">
+                Diploma Degree
+              </span>
+<span class="material-symbols-outlined text-primary text-[22px]">school</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">
+              Information Technology
+            </h3>
+<p class="font-body-lg text-body-lg text-secondary font-medium mt-1">
+              Universitas Pakuan
+            </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm leading-relaxed">
+              Formative immersion in computer systems, relational database administration, web programming foundations, network engineering, and object-oriented programming.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-xs flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified</span>
+<span>IT Systems &amp; Web Programming</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. HIGH-CONVERSION CONTACT CTA SECTION -->
+<section class="w-full py-space-4xl max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop relative" id="contact">
+<!-- Ambient Glow behind CTA -->
+<div class="absolute inset-x-1/4 top-1/2 -translate-y-1/2 h-64 bg-primary-container/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="p-space-xl lg:p-space-3xl rounded-3xl bg-surface-container/80 backdrop-blur-2xl shadow-2xl flex flex-col items-center text-center">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-highest/60 mb-space-md">
+<span class="h-2 w-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Ready for new challenges</span>
+</div>
+<h2 class="font-display text-display tracking-tight text-on-surface max-w-3xl">
+        Have an idea? <br/>
+<span class="bg-gradient-to-r from-secondary via-primary to-tertiary bg-clip-text text-transparent">
+          Let's turn it into software.
+        </span>
+</h2>
+<p class="mt-space-md font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+        I'm open to freelance projects, full-time opportunities, collaborations, and challenging software development problems.
+      </p>
+<!-- Prominent Direct Action Buttons -->
+<div class="mt-space-xl flex flex-wrap items-center justify-center gap-space-md">
+<a class="inline-flex items-center gap-space-xs h-12 px-space-xl rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-secondary transition-all shadow-[0_0_20px_rgba(173,198,255,0.3)]" href="mailto:your.email@example.com">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+<span>Email Me</span>
+</a>
+<a class="inline-flex items-center gap-space-xs h-12 px-space-lg rounded-xl bg-surface-container-high/80 text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-highest hover:text-secondary transition-all" href="https://github.com/" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+<span>GitHub</span>
+</a>
+<a class="inline-flex items-center gap-space-xs h-12 px-space-lg rounded-xl bg-surface-container-high/80 text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-highest hover:text-secondary transition-all" href="https://linkedin.com/" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">link</span>
+<span>LinkedIn</span>
+</a>
+</div>
+<!-- Direct Copy Email Widget -->
+<div class="mt-space-xl flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container-lowest/80 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">send</span>
+<span class="font-code-snippet text-code-snippet text-on-surface" id="email-address-text">your.email@example.com</span>
+<button class="ml-space-2xs p-1 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" id="copy-email-btn" onclick="navigator.clipboard.writeText('your.email@example.com'); this.innerHTML = '&lt;span class=\'material-symbols-outlined text-[16px] text-tertiary\'&gt;check&lt;/span&gt;'; setTimeout(() =&gt; this.innerHTML = '&lt;span class=\'material-symbols-outlined text-[16px]\'&gt;content_copy&lt;/span&gt;', 2000);" title="Copy email">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-lowest/90 mt-space-3xl"><div class="max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col items-center md:items-start gap-space-2xs"><div class="flex items-center gap-1 font-headline-sm text-headline-sm text-on-surface"><span class="tracking-tight">Ridho</span><span class="h-1.5 w-1.5 rounded-full bg-secondary"></span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Crafting high-precision, scalable web architecture &amp; user experiences.</p></div><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-2xs text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#"><span class="material-symbols-outlined text-[18px]">terminal</span><span>GitHub</span></a><a class="flex items-center gap-space-2xs text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#"><span class="material-symbols-outlined text-[18px]">link</span><span>LinkedIn</span></a><a class="flex items-center gap-space-2xs text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#"><span class="material-symbols-outlined text-[18px]">mail</span><span>Email</span></a></div><div class="font-label-sm text-label-sm text-outline">© 2024 Muhamad Ridho Ardian. All rights reserved.</div></div></footer></body></html>

@@ -1,640 +1,1309 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Muhamad Ridho Ardian — Full-Stack Developer</title>
+<meta name="description" content="Muhamad Ridho Ardian is a full-stack developer from Indonesia who builds products people actually use — Imperium Dawn, EdoGo, LPKGo, AlFirdaus and TajirPOS." />
+<meta name="theme-color" content="#0b0b0b" />
+<meta property="og:title" content="Muhamad Ridho Ardian — Full-Stack Developer" />
+<meta property="og:description" content="I build products people actually use. Laravel, React, MySQL — from blank database to live product." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%230b0b0b'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' fill='%23f4f4f1' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<script>
+  // Runs before paint: enables motion states, respects reduced motion, and never leaves content hidden.
+  (function () {
+    var root = document.documentElement;
+    root.classList.add('js');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) root.classList.add('reduced', 'no-motion');
+    setTimeout(function () {
+      if (!root.classList.contains('ready')) root.classList.add('ready', 'no-motion');
+    }, 6000);
+  })();
+</script>
+<style>
+  :root {
+    --black: #0b0b0b;
+    --white: #f4f4f1;
+    --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+    --ease: cubic-bezier(.16, 1, .3, 1);
+    --gutter: clamp(16px, 4vw, 56px);
+    --maxw: 1440px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: hidden; }
+  body {
+    margin: 0;
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  .js:not(.ready) body { overflow: hidden; }
+  ::selection { background: var(--white); color: var(--black); }
+  .theme-light ::selection { background: var(--black); color: var(--white); }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+  h1, h2, h3, h4, p, ul { margin: 0; }
+  :focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
 
-<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"outline":"#8c909f","secondary":"#7bd0ff","surface-bright":"#2f394c","tertiary":"#4edea3","tertiary-fixed":"#6ffbbe","on-error":"#690005","outline-variant":"#424754","inverse-on-surface":"#263143","tertiary-container":"#00a572","surface-container-highest":"#2b3547","on-surface-variant":"#c2c6d6","primary-fixed":"#d8e2ff","on-tertiary-fixed-variant":"#005236","on-primary-fixed":"#001a42","background":"#081324","on-secondary-fixed":"#001e2c","surface-container-high":"#202a3c","primary":"#adc6ff","on-error-container":"#ffdad6","on-primary":"#002e6a","secondary-container":"#00a6e0","surface-container-low":"#111c2d","secondary-fixed":"#c4e7ff","error":"#ffb4ab","on-background":"#d8e3fb","on-secondary":"#00354a","inverse-surface":"#d8e3fb","primary-fixed-dim":"#adc6ff","tertiary-fixed-dim":"#4edea3","on-tertiary":"#003824","on-primary-fixed-variant":"#004395","on-primary-container":"#00285d","inverse-primary":"#005ac2","surface-container-lowest":"#040e1f","on-tertiary-container":"#00311f","secondary-fixed-dim":"#7bd0ff","error-container":"#93000a","surface-dim":"#081324","surface-variant":"#2b3547","on-secondary-container":"#00374d","primary-container":"#4d8eff","surface-tint":"#adc6ff","on-tertiary-fixed":"#002113","on-secondary-fixed-variant":"#004c69","on-surface":"#d8e3fb","surface-container":"#152031","surface":"#081324"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-2xs":"0.25rem","space-xl":"2rem","space-xs":"0.5rem","space-lg":"1.5rem","space-sm":"0.75rem","gutter-mobile":"1rem","space-md":"1rem","max-container":"72rem","space-3xl":"4.5rem","space-2xl":"3rem","space-4xl":"6rem","gutter-desktop":"1.5rem"},"fontFamily":{"label-md":["Inter"],"headline-lg-mobile":["Inter"],"code-snippet":["Inter"],"display":["Inter"],"body-sm":["Inter"],"label-sm":["Inter"],"headline-lg":["Inter"],"headline-md":["Inter"],"body-md":["Inter"],"display-mobile":["Inter"],"body-lg":["Inter"],"headline-sm":["Inter"]},"fontSize":{"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"code-snippet":["13px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"display":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"display-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"-0.05em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-1 font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors" data-path="about" href="#"><span class="tracking-tight">Ridho</span><span class="h-2 w-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(123,208,255,0.8)]"></span></a><div class="hidden xl:flex items-center gap-space-xs px-space-xs py-1 rounded-full bg-surface-container-high/60"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Available for freelance &amp; opportunities</span></div></div><nav class="hidden md:flex items-center gap-1 px-space-xs py-1 rounded-xl bg-surface-container/50" data-active-classes="bg-surface-container-high text-on-surface font-medium rounded-lg"><a aria-current="page" class="px-space-xs py-1 transition-all bg-surface-container-high text-on-surface font-medium rounded-lg" data-path="about" href="#">About</a><a class="px-space-xs py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="skills" href="#">Skills</a><a class="px-space-xs py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="projects" href="#">Projects</a><a class="px-space-xs py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="experience" href="#">Experience</a><a class="px-space-xs py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="education" href="#">Education</a><a class="px-space-xs py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-sm"><a class="hidden sm:inline-flex items-center justify-center h-9 px-space-md rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold hover:bg-primary hover:text-on-primary shadow-[0_0_16px_rgba(77,142,255,0.25)] transition-all" data-path="contact" href="#">Let's Connect</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 min-h-screen bg-background"><div class="flex flex-col w-full selection:bg-primary-container selection:text-on-primary-container">
-<!-- Ambient Light Orbs (Parent Relative) -->
-<div class="relative w-full overflow-hidden">
-<div class="absolute top-12 left-1/2 -translate-x-1/2 w-[680px] h-[360px] bg-gradient-to-tr from-primary-container/20 via-secondary/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10"></div>
-<div class="absolute top-[48rem] right-10 w-[420px] h-[320px] bg-tertiary-container/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-<!-- 1. HERO SECTION -->
-<section class="max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop pt-space-2xl pb-space-3xl flex flex-col items-center text-center">
-<!-- Top Status Pill -->
-<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container-high/80 backdrop-blur-md shadow-md mb-space-lg">
-<span class="relative flex h-2.5 w-2.5">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary"></span>
-</span>
-<span class="font-label-md text-label-md text-on-surface-variant font-medium">Available for freelance projects &amp; opportunities</span>
-</div>
-<!-- Headline -->
-<h1 class="font-display text-display tracking-tight text-on-surface max-w-4xl">
-        I build web products <br class="hidden sm:inline"/>
-<span class="bg-gradient-to-r from-secondary via-primary to-tertiary-fixed bg-clip-text text-transparent">from idea to reality.</span>
-</h1>
-<!-- Bio Paragraph -->
-<p class="mt-space-lg max-w-2xl font-body-lg text-body-lg text-on-surface-variant">
-        I am <span class="text-on-surface font-medium">Muhamad Ridho Ardian</span>, a Full-Stack Web Developer focused on turning ideas into reliable, practical, and scalable web applications. I work across the stack — from interfaces and APIs to databases, business logic, and deployment.
-      </p>
-<!-- CTA Buttons -->
-<div class="mt-space-xl flex flex-wrap items-center justify-center gap-space-md">
-<a class="group inline-flex items-center gap-space-xs h-11 px-space-lg rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-secondary transition-all shadow-[0_0_24px_rgba(173,198,255,0.3)]" href="#projects">
-<span>View My Work</span>
-<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-<a class="inline-flex items-center gap-space-xs h-11 px-space-lg rounded-lg bg-surface-container-high/60 text-secondary font-label-md text-label-md font-semibold hover:bg-surface-container-highest hover:text-on-surface transition-all" href="#contact">
-<span class="material-symbols-outlined text-[18px]">chat_bubble_outline</span>
-<span>Let's Talk</span>
-</a>
-</div>
-<!-- Quick Metrics Bar -->
-<div class="mt-space-3xl w-full grid grid-cols-2 md:grid-cols-4 gap-space-md pt-space-xl">
-<div class="flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container/40 backdrop-blur-md shadow-sm">
-<span class="font-headline-lg text-headline-lg text-secondary font-bold">3+</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Major Case Studies</span>
-</div>
-<div class="flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container/40 backdrop-blur-md shadow-sm">
-<span class="font-headline-lg text-headline-lg text-primary font-bold">E2E</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Full-Stack Architecture</span>
-</div>
-<div class="flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container/40 backdrop-blur-md shadow-sm">
-<span class="font-headline-lg text-headline-lg text-tertiary-fixed font-bold">Modern</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Laravel &amp; React Ecosystem</span>
-</div>
-<div class="flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container/40 backdrop-blur-md shadow-sm">
-<span class="font-headline-lg text-headline-lg text-secondary-fixed font-bold">100%</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Production Ready</span>
-</div>
-</div>
-</section>
-</div>
-<!-- 2. ABOUT SECTION -->
-<section class="w-full bg-surface-container-lowest/70 py-space-3xl relative" id="about">
-<div class="max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl items-center">
-<!-- Left Column: Storytelling -->
-<div class="lg:col-span-7 flex flex-col gap-space-md">
-<div class="inline-flex items-center gap-space-xs">
-<span class="h-1.5 w-6 rounded-full bg-secondary"></span>
-<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest font-semibold">About Me</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">
-            More than writing code. <br/>
-<span class="text-primary">I build products.</span>
-</h2>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-            I approach software engineering with a product-first mindset. Building software is never merely about syntax or frameworks; it starts with diagnosing the fundamental problem, dissecting operational friction, and structuring clean data paradigms.
-          </p>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-            From architecting relational database schemas and designing predictable RESTful endpoints to crafting fluid, responsive interfaces and executing CI/CD server deployments, I guarantee complete operational integrity at every layer of the product lifecycle.
-          </p>
-<!-- Flow Indicator Micro-Graphic -->
-<div class="mt-space-sm p-space-md rounded-xl bg-surface-container-low/70 flex flex-wrap items-center justify-between gap-space-sm">
-<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface font-medium">
-<span class="material-symbols-outlined text-secondary text-[18px]">psychology</span>
-<span>1. Discovery</span>
-</div>
-<span class="material-symbols-outlined text-outline-variant text-[16px]">trending_flat</span>
-<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface font-medium">
-<span class="material-symbols-outlined text-primary text-[18px]">database</span>
-<span>2. Schema Design</span>
-</div>
-<span class="material-symbols-outlined text-outline-variant text-[16px]">trending_flat</span>
-<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface font-medium">
-<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">code</span>
-<span>3. Full-Stack Dev</span>
-</div>
-<span class="material-symbols-outlined text-outline-variant text-[16px]">trending_flat</span>
-<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface font-medium">
-<span class="material-symbols-outlined text-secondary-fixed text-[18px]">cloud_done</span>
-<span>4. Production</span>
-</div>
-</div>
-</div>
-<!-- Right Column: 4 Spec Cards -->
-<div class="lg:col-span-5 grid grid-cols-2 gap-space-md">
-<div class="p-space-lg rounded-xl bg-surface-container/60 backdrop-blur-md shadow-md flex flex-col gap-space-2xs group hover:bg-surface-container-high transition-all">
-<div class="w-9 h-9 rounded-lg bg-secondary/15 flex items-center justify-center text-secondary mb-space-2xs">
-<span class="material-symbols-outlined text-[20px]">terminal</span>
-</div>
-<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Role</span>
-<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Full-Stack Dev</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Engineering end-to-end web apps</span>
-</div>
-<div class="p-space-lg rounded-xl bg-surface-container/60 backdrop-blur-md shadow-md flex flex-col gap-space-2xs group hover:bg-surface-container-high transition-all">
-<div class="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center text-primary mb-space-2xs">
-<span class="material-symbols-outlined text-[20px]">layers</span>
-</div>
-<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Focus</span>
-<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Digital Products</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">SaaS, management, UI/UX</span>
-</div>
-<div class="p-space-lg rounded-xl bg-surface-container/60 backdrop-blur-md shadow-md flex flex-col gap-space-2xs group hover:bg-surface-container-high transition-all">
-<div class="w-9 h-9 rounded-lg bg-tertiary/15 flex items-center justify-center text-tertiary mb-space-2xs">
-<span class="material-symbols-outlined text-[20px]">dns</span>
-</div>
-<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Backend</span>
-<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Laravel / PHP</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">APIs, auth, queues &amp; DB logic</span>
-</div>
-<div class="p-space-lg rounded-xl bg-surface-container/60 backdrop-blur-md shadow-md flex flex-col gap-space-2xs group hover:bg-surface-container-high transition-all">
-<div class="w-9 h-9 rounded-lg bg-secondary-fixed/15 flex items-center justify-center text-secondary-fixed mb-space-2xs">
-<span class="material-symbols-outlined text-[20px]">web</span>
-</div>
-<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Frontend</span>
-<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">React / JS</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Stateful modular client apps</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 3. SKILLS & TECH STACK SECTION -->
-<section class="w-full py-space-3xl max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop" id="skills">
-<div class="flex flex-col items-center text-center max-w-2xl mx-auto mb-space-2xl">
-<div class="inline-flex items-center gap-space-xs mb-space-xs">
-<span class="h-1.5 w-6 rounded-full bg-primary"></span>
-<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">Skills &amp; Tech Stack</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">
-        Tools are important. <br/>
-<span class="text-secondary">Solving the problem is more important.</span>
-</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
-        I use modern web technologies to build applications that are maintainable, functional, and ready to grow.
-      </p>
-</div>
-<!-- 8 Tech Cards Responsive Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
-<!-- 1: Laravel -->
-<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<div class="w-10 h-10 rounded-lg bg-error-container/40 text-error flex items-center justify-center font-bold font-code-snippet text-code-snippet">
-              LV
-            </div>
-<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Backend</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">Laravel</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Application backends, REST APIs, authentication, background queues, and database-driven systems.
-          </p>
-</div>
-<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-primary">
-<span class="material-symbols-outlined text-[14px]">check_circle</span>
-<span>Core Competency</span>
-</div>
-</div>
-<!-- 2: React -->
-<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<div class="w-10 h-10 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center font-bold font-code-snippet text-code-snippet">
-              RC
-            </div>
-<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Frontend</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">React</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Responsive interfaces, reusable components, interactive client-side logic, and state management.
-          </p>
-</div>
-<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-primary">
-<span class="material-symbols-outlined text-[14px]">check_circle</span>
-<span>Core Competency</span>
-</div>
-</div>
-<!-- 3: PHP -->
-<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<div class="w-10 h-10 rounded-lg bg-primary/15 text-primary flex items-center justify-center font-bold font-code-snippet text-code-snippet">
-              PHP
-            </div>
-<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Language</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">PHP</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Structured backend applications, object-oriented design, robust server-side processing, and security.
-          </p>
-</div>
-<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-[14px]">bolt</span>
-<span>OOP Architecture</span>
-</div>
-</div>
-<!-- 4: MySQL -->
-<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<div class="w-10 h-10 rounded-lg bg-tertiary/15 text-tertiary flex items-center justify-center font-bold font-code-snippet text-code-snippet">
-              SQL
-            </div>
-<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Database</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">MySQL</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Relational database design, normal forms, foreign relationships, indexing, and query optimization.
-          </p>
-</div>
-<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-[14px]">storage</span>
-<span>Relational Schema</span>
-</div>
-</div>
-<!-- 5: REST API -->
-<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<div class="w-10 h-10 rounded-lg bg-secondary-container/20 text-secondary-fixed flex items-center justify-center font-bold font-code-snippet text-code-snippet">
-              API
-            </div>
-<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Architecture</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">REST API</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Structured endpoints, standardized payloads, status codes, token auth, and reliable multi-interface conduits.
-          </p>
-</div>
-<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-[14px]">sync_alt</span>
-<span>Contracts &amp; JSON</span>
-</div>
-</div>
-<!-- 6: JavaScript -->
-<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<div class="w-10 h-10 rounded-lg bg-tertiary-fixed/15 text-tertiary-fixed flex items-center justify-center font-bold font-code-snippet text-code-snippet">
-              JS
-            </div>
-<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Language</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">JavaScript</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Modern ES6+, async/await asynchronous flows, DOM manipulation, and dynamic web experiences.
-          </p>
-</div>
-<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-[14px]">javascript</span>
-<span>ES6+ Standard</span>
-</div>
-</div>
-<!-- 7: Git -->
-<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<div class="w-10 h-10 rounded-lg bg-primary-fixed/15 text-primary-fixed flex items-center justify-center font-bold font-code-snippet text-code-snippet">
-              GIT
-            </div>
-<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">Workflow</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">Git</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Version control, collaborative branching strategies, commit disciplines, and CI/CD pipeline foundations.
-          </p>
-</div>
-<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-[14px]">fork_right</span>
-<span>Version Control</span>
-</div>
-</div>
-<!-- 8: Deployment -->
-<div class="p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md hover:bg-surface-container-high transition-all shadow-sm flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<div class="w-10 h-10 rounded-lg bg-surface-container-highest text-secondary-fixed flex items-center justify-center font-bold font-code-snippet text-code-snippet">
-              OPS
-            </div>
-<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-medium">DevOps</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-2xs">Deployment</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Server provisioning, Nginx/Apache configuration, DNS management, and scalable cloud hosting infrastructure.
-          </p>
-</div>
-<div class="mt-space-md pt-space-xs flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-[14px]">cloud</span>
-<span>Server Ops</span>
-</div>
-</div>
-</div>
-</section>
-<!-- 4. FEATURED PROJECTS SECTION -->
-<section class="w-full bg-surface-container-lowest/80 py-space-3xl relative" id="projects">
-<div class="max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-2xl gap-space-md">
-<div>
-<div class="inline-flex items-center gap-space-xs mb-space-xs">
-<span class="h-1.5 w-6 rounded-full bg-tertiary"></span>
-<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-widest font-semibold">Selected Work</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">
-            Problems I've turned <span class="text-primary">into products.</span>
-</h2>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
-          A showcase of practical engineering applications focusing on operational clarity, education, and simulation logic.
-        </p>
-</div>
-<!-- Project Showcase List -->
-<div class="flex flex-col gap-space-2xl">
-<!-- Project 01: LPK Management System -->
-<div class="rounded-2xl bg-surface-container/60 backdrop-blur-xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
-<div class="lg:col-span-7 relative h-72 lg:h-auto min-h-[300px] overflow-hidden bg-surface-container-high">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern enterprise management SaaS software dashboard on an ultra-wide monitor, showing data analytics charts, student roster tables, registration metrics, dark mode UI with electric blue and emerald accents, sleek digital workspace atmosphere, high resolution 3D render." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfoYP9TvnPnTNixitWPPxGvZI1Bubps7DyCCrBuQiNzN2mepnsBi4qC-KNZJkvg40ktaJKTnww5fQJsKRvNm-EXePopPruuFkomQ5q1YMQ4MeWGE3JXN7_8m4xBUjjfopo8EXJZXopxBZX5_EeqgFhntEMRTiCTe4t9yEDqp__DyRtUOM470vTbv3pGxydNVZyNI-IJBBiS3azcywnSO27lGOAN-b1fBWFuv0NsKdVOKOUMjXWpqI"/>
-<div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-surface-container via-surface-container/30 to-transparent"></div>
-<div class="absolute top-4 left-4 px-space-sm py-1 rounded-md bg-surface-container-lowest/80 backdrop-blur-md font-code-snippet text-code-snippet text-secondary">
-              PROJECT 01 / MANAGEMENT
-            </div>
-</div>
-<div class="lg:col-span-5 p-space-xl flex flex-col justify-between">
-<div>
-<div class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-md bg-secondary/10 text-secondary font-label-sm text-label-sm font-medium mb-space-sm">
-<span class="material-symbols-outlined text-[14px]">architecture</span>
-<span>Turning administrative processes into a structured digital system</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-space-xs">
-                LPK Management System
-              </h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
-                A management platform designed to simplify the daily operations of training institutions. Features automated student enrolment records, batch scheduling, payment auditing, and instructor role delegation.
-              </p>
-<!-- Badges -->
-<div class="flex flex-wrap gap-space-2xs mb-space-lg">
-<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">Laravel</span>
-<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">React</span>
-<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">MySQL</span>
-<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">REST API</span>
-</div>
-</div>
-<!-- Links -->
-<div class="flex items-center gap-space-md pt-space-md">
-<a class="inline-flex items-center gap-space-2xs font-label-md text-label-md text-primary hover:text-secondary font-semibold transition-colors" href="#contact">
-<span>View Case Study</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</a>
-<a class="inline-flex items-center gap-space-2xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#contact">
-<span>Live Demo</span>
-<span class="material-symbols-outlined text-[16px]">launch</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Project 02: EdoGo -->
-<div class="rounded-2xl bg-surface-container/60 backdrop-blur-xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
-<div class="lg:col-span-7 lg:order-2 relative h-72 lg:h-auto min-h-[300px] overflow-hidden bg-surface-container-high">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An educational Japanese language web app UI displayed on modern mobile and laptop mockups, exhibiting Hiragana flashcards, interactive grammar quizzes, progress telemetry, dark slate and vibrant cyan neon glow, clean minimalistic typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbb0RbKepDqA3-R-5_w3TqLdgv3AVAd0V8evqSBuYZjd5nmOc2QzX4jVjfxQhBJhYMPfTVzJ7vtZZ7OBG2G5DTfn3amuMGdY_ho7XB7Sptl4KQqxwa7_-YMcFLY_h8Gi8Su2yogrX-a8Y11UB4Rroys1YoUOg2KGBuQ6NSNSMd5yK0xMqHYFIn01OTqK8BDseWJNYfZhXFk8fl42rtSvN5kETsK66ANDUExWPdX6mixkW-8r8Pdzg"/>
-<div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-l from-surface-container via-surface-container/30 to-transparent"></div>
-<div class="absolute top-4 left-4 px-space-sm py-1 rounded-md bg-surface-container-lowest/80 backdrop-blur-md font-code-snippet text-code-snippet text-tertiary-fixed">
-              PROJECT 02 / EDUCATION
-            </div>
-</div>
-<div class="lg:col-span-5 lg:order-1 p-space-xl flex flex-col justify-between">
-<div>
-<div class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-md bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-medium mb-space-sm">
-<span class="material-symbols-outlined text-[14px]">school</span>
-<span>Building an educational product around a real learning experience</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-space-xs">
-                EdoGo
-              </h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
-                A Japanese language learning platform designed around structured and interactive language practice. Includes spaced repetition drills, vocabulary retention telemetry, and interactive kanji tracing components.
-              </p>
-<!-- Badges -->
-<div class="flex flex-wrap gap-space-2xs mb-space-lg">
-<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">React</span>
-<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">Laravel</span>
-<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">REST API</span>
-<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">Education</span>
-</div>
-</div>
-<!-- Links -->
-<div class="flex items-center gap-space-md pt-space-md">
-<a class="inline-flex items-center gap-space-2xs font-label-md text-label-md text-tertiary font-semibold hover:text-tertiary-fixed transition-colors" href="#contact">
-<span>View Details</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</a>
-<a class="inline-flex items-center gap-space-2xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#contact">
-<span>Preview App</span>
-<span class="material-symbols-outlined text-[16px]">launch</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Project 03: Imperium Dawn -->
-<div class="rounded-2xl bg-surface-container/60 backdrop-blur-xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
-<div class="lg:col-span-7 relative h-72 lg:h-auto min-h-[300px] overflow-hidden bg-surface-container-high">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Tactical isometric browser game user interface showing resource production panels, sci-fi planetary colony map, military conquest queue, sci-fi deep space aesthetic, blue and amber status indicators, detailed game engineering telemetry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQSUC3RtL02Psry3mO92bxJuEExYHc3O5WOfUZ8bfNMUgfglwd4f0jNt5mrN_5t1m33zYXA9zvaF_IYE_DC7-I-0hlnZZLgxpdNW7xbNR9v_QyaNoTFA6tNhdLut9EfVUhFV33_uldTFCDmz34qNS3CRd6aVmfGcPxV5lCJ6xdnVRL19DzvblcgrjRnYN9QP86Svu2V0R5GVXdJFo9b6mNHJridMYoPTPdnhxoTA_abLTbzRP6bo0"/>
-<div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-surface-container via-surface-container/30 to-transparent"></div>
-<div class="absolute top-4 left-4 px-space-sm py-1 rounded-md bg-surface-container-lowest/80 backdrop-blur-md font-code-snippet text-code-snippet text-secondary-fixed">
-              PROJECT 03 / GAME
-            </div>
-</div>
-<div class="lg:col-span-5 p-space-xl flex flex-col justify-between">
-<div>
-<div class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-md bg-primary/10 text-primary font-label-sm text-label-sm font-medium mb-space-sm">
-<span class="material-symbols-outlined text-[14px]">sports_esports</span>
-<span>Designing backend systems and game logic for player progression</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-space-xs">
-                Imperium Dawn
-              </h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
-                A browser-based strategy game where players manage economic resources, develop their planetary empire, and make strategic decisions. Implements high-throughput tick rate engines and transactional state persistence.
-              </p>
-<!-- Badges -->
-<div class="flex flex-wrap gap-space-2xs mb-space-lg">
-<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">Laravel</span>
-<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">PHP</span>
-<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">MySQL</span>
-<span class="px-space-xs py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">Game Mechanics</span>
-</div>
-</div>
-<!-- Links -->
-<div class="flex items-center gap-space-md pt-space-md">
-<a class="inline-flex items-center gap-space-2xs font-label-md text-label-md text-primary hover:text-secondary font-semibold transition-colors" href="#contact">
-<span>Explore System Architecture</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 5. EXPERIENCE & TIMELINE SECTION -->
-<section class="w-full py-space-3xl max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop" id="experience">
-<div class="flex flex-col items-center text-center max-w-2xl mx-auto mb-space-2xl">
-<div class="inline-flex items-center gap-space-xs mb-space-xs">
-<span class="h-1.5 w-6 rounded-full bg-secondary"></span>
-<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest font-semibold">Experience</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">
-        From ideas to <span class="text-secondary">working software.</span>
-</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
-        A timeline of hands-on software engineering, technical ownership, and production-ready implementations.
-      </p>
-</div>
-<!-- Vertical Timeline -->
-<div class="max-w-3xl mx-auto relative pl-6 md:pl-8 flex flex-col gap-space-xl">
-<!-- Background Vertical Accent Line -->
-<div class="absolute left-2.5 md:left-3.5 top-3 bottom-3 w-0.5 bg-surface-container-highest"></div>
-<!-- Item 1: Freelance -->
-<div class="relative flex items-start gap-space-md group">
-<div class="absolute -left-6 md:-left-8 mt-1.5 w-6 h-6 rounded-full bg-surface-container-lowest flex items-center justify-center">
-<span class="h-3 w-3 rounded-full bg-tertiary shadow-[0_0_12px_rgba(78,222,163,0.8)]"></span>
-</div>
-<div class="w-full p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md shadow-sm group-hover:bg-surface-container-high transition-all">
-<div class="flex flex-wrap items-center justify-between gap-space-xs mb-space-2xs">
-<span class="font-label-sm text-label-sm text-tertiary font-semibold uppercase tracking-wider">Present</span>
-<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Independent</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
-            Freelance Full-Stack Developer
-          </h3>
-<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
-            Designing and developing web applications, SaaS products, APIs, and digital products across frontend, backend, databases, and deployment. Working closely with founders to translate business objectives into reliable codebases.
-          </p>
-</div>
-</div>
-<!-- Item 2: SaaS & Web App -->
-<div class="relative flex items-start gap-space-md group">
-<div class="absolute -left-6 md:-left-8 mt-1.5 w-6 h-6 rounded-full bg-surface-container-lowest flex items-center justify-center">
-<span class="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(173,198,255,0.6)]"></span>
-</div>
-<div class="w-full p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md shadow-sm group-hover:bg-surface-container-high transition-all">
-<div class="flex flex-wrap items-center justify-between gap-space-xs mb-space-2xs">
-<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Project Experience</span>
-<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Personal Projects</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
-            SaaS &amp; Web Application Development
-          </h3>
-<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
-            Building management platforms, authentication systems, complex business logic, database architectures, and end-to-end user workflows. Focus on structured code maintainability and testability.
-          </p>
-</div>
-</div>
-<!-- Item 3: Browser Game Development -->
-<div class="relative flex items-start gap-space-md group">
-<div class="absolute -left-6 md:-left-8 mt-1.5 w-6 h-6 rounded-full bg-surface-container-lowest flex items-center justify-center">
-<span class="h-2.5 w-2.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(123,208,255,0.6)]"></span>
-</div>
-<div class="w-full p-space-lg rounded-xl bg-surface-container/50 backdrop-blur-md shadow-sm group-hover:bg-surface-container-high transition-all">
-<div class="flex flex-wrap items-center justify-between gap-space-xs mb-space-2xs">
-<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Project Experience</span>
-<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Imperium Dawn</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
-            Browser Game Development
-          </h3>
-<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
-            Developing browser-based strategy game systems featuring backend-driven game mechanics, economic resource allocation loops, and database-persisted player progression with state consistency.
-          </p>
-</div>
-</div>
-</div>
-</section>
-<!-- 6. EDUCATION SECTION -->
-<section class="w-full bg-surface-container-lowest/70 py-space-3xl relative" id="education">
-<div class="max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop">
-<div class="flex flex-col items-center text-center max-w-2xl mx-auto mb-space-2xl">
-<div class="inline-flex items-center gap-space-xs mb-space-xs">
-<span class="h-1.5 w-6 rounded-full bg-primary"></span>
-<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">Academic Foundation</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">
-          The foundation <span class="text-primary">behind the code.</span>
-</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
-          Computer Science principles, algorithmic thinking, and software engineering methodologies.
-        </p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg max-w-4xl mx-auto">
-<!-- Degree 1 -->
-<div class="p-space-xl rounded-2xl bg-surface-container/60 backdrop-blur-md shadow-md flex flex-col justify-between hover:bg-surface-container-high transition-all">
-<div>
-<div class="flex items-center justify-between mb-space-sm">
-<span class="px-space-xs py-1 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-semibold uppercase">
-                Bachelor's Degree
-              </span>
-<span class="material-symbols-outlined text-secondary text-[22px]">school</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">
-              Informatics
-            </h3>
-<p class="font-body-lg text-body-lg text-secondary font-medium mt-1">
-              Universitas Siber Asia
-            </p>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm leading-relaxed">
-              Specializing in advanced software engineering, distributed computing architectures, algorithms, data structures, and enterprise software engineering patterns.
-            </p>
-</div>
-<div class="mt-space-lg pt-space-xs flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-[16px] text-tertiary">verified</span>
-<span>Computer Science &amp; Software Systems</span>
-</div>
-</div>
-<!-- Degree 2 -->
-<div class="p-space-xl rounded-2xl bg-surface-container/60 backdrop-blur-md shadow-md flex flex-col justify-between hover:bg-surface-container-high transition-all">
-<div>
-<div class="flex items-center justify-between mb-space-sm">
-<span class="px-space-xs py-1 rounded bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold uppercase">
-                Diploma Degree
-              </span>
-<span class="material-symbols-outlined text-primary text-[22px]">school</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">
-              Information Technology
-            </h3>
-<p class="font-body-lg text-body-lg text-secondary font-medium mt-1">
-              Universitas Pakuan
-            </p>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm leading-relaxed">
-              Formative immersion in computer systems, relational database administration, web programming foundations, network engineering, and object-oriented programming.
-            </p>
-</div>
-<div class="mt-space-lg pt-space-xs flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-[16px] text-tertiary">verified</span>
-<span>IT Systems &amp; Web Programming</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 7. HIGH-CONVERSION CONTACT CTA SECTION -->
-<section class="w-full py-space-4xl max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop relative" id="contact">
-<!-- Ambient Glow behind CTA -->
-<div class="absolute inset-x-1/4 top-1/2 -translate-y-1/2 h-64 bg-primary-container/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
-<div class="p-space-xl lg:p-space-3xl rounded-3xl bg-surface-container/80 backdrop-blur-2xl shadow-2xl flex flex-col items-center text-center">
-<div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-highest/60 mb-space-md">
-<span class="h-2 w-2 rounded-full bg-secondary"></span>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Ready for new challenges</span>
-</div>
-<h2 class="font-display text-display tracking-tight text-on-surface max-w-3xl">
-        Have an idea? <br/>
-<span class="bg-gradient-to-r from-secondary via-primary to-tertiary bg-clip-text text-transparent">
-          Let's turn it into software.
-        </span>
-</h2>
-<p class="mt-space-md font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-        I'm open to freelance projects, full-time opportunities, collaborations, and challenging software development problems.
-      </p>
-<!-- Prominent Direct Action Buttons -->
-<div class="mt-space-xl flex flex-wrap items-center justify-center gap-space-md">
-<a class="inline-flex items-center gap-space-xs h-12 px-space-xl rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-secondary transition-all shadow-[0_0_20px_rgba(173,198,255,0.3)]" href="mailto:your.email@example.com">
-<span class="material-symbols-outlined text-[20px]">mail</span>
-<span>Email Me</span>
-</a>
-<a class="inline-flex items-center gap-space-xs h-12 px-space-lg rounded-xl bg-surface-container-high/80 text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-highest hover:text-secondary transition-all" href="https://github.com/" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[20px]">terminal</span>
-<span>GitHub</span>
-</a>
-<a class="inline-flex items-center gap-space-xs h-12 px-space-lg rounded-xl bg-surface-container-high/80 text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-highest hover:text-secondary transition-all" href="https://linkedin.com/" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[20px]">link</span>
-<span>LinkedIn</span>
-</a>
-</div>
-<!-- Direct Copy Email Widget -->
-<div class="mt-space-xl flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container-lowest/80 text-on-surface-variant">
-<span class="material-symbols-outlined text-[16px] text-primary">send</span>
-<span class="font-code-snippet text-code-snippet text-on-surface" id="email-address-text">your.email@example.com</span>
-<button class="ml-space-2xs p-1 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" id="copy-email-btn" onclick="navigator.clipboard.writeText('your.email@example.com'); this.innerHTML = '&lt;span class=\'material-symbols-outlined text-[16px] text-tertiary\'&gt;check&lt;/span&gt;'; setTimeout(() =&gt; this.innerHTML = '&lt;span class=\'material-symbols-outlined text-[16px]\'&gt;content_copy&lt;/span&gt;', 2000);" title="Copy email">
-<span class="material-symbols-outlined text-[16px]">content_copy</span>
-</button>
-</div>
-</div>
-</section>
-</div></main><footer class="w-full bg-surface-container-lowest/90 mt-space-3xl"><div class="max-w-max-container mx-auto px-gutter-mobile lg:px-gutter-desktop py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col items-center md:items-start gap-space-2xs"><div class="flex items-center gap-1 font-headline-sm text-headline-sm text-on-surface"><span class="tracking-tight">Ridho</span><span class="h-1.5 w-1.5 rounded-full bg-secondary"></span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Crafting high-precision, scalable web architecture &amp; user experiences.</p></div><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-2xs text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#"><span class="material-symbols-outlined text-[18px]">terminal</span><span>GitHub</span></a><a class="flex items-center gap-space-2xs text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#"><span class="material-symbols-outlined text-[18px]">link</span><span>LinkedIn</span></a><a class="flex items-center gap-space-2xs text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#"><span class="material-symbols-outlined text-[18px]">mail</span><span>Email</span></a></div><div class="font-label-sm text-label-sm text-outline">© 2024 Muhamad Ridho Ardian. All rights reserved.</div></div></footer></body></html>
+  .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+  .mono { font-family: var(--font-mono); font-size: 12px; line-height: 1.4; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; }
+  em, .serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -.02em; }
+  .theme-dark { background: var(--black); color: var(--white); --line: rgba(244,244,241,.16); --muted: rgba(244,244,241,.64); --fg: var(--white); --bg: var(--black); }
+  .theme-light { background: var(--white); color: var(--black); --line: rgba(11,11,11,.14); --muted: rgba(11,11,11,.64); --fg: var(--black); --bg: var(--white); }
+  .muted { color: var(--muted); }
+  .ico { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .skip { position: absolute; left: -9999px; top: 12px; z-index: 300; background: var(--white); color: var(--black); padding: 10px 14px; border-radius: 6px; }
+  .skip:focus { left: 12px; }
+
+  /* ---------- Motion initial states (only when JS + motion are active) ---------- */
+  .line { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
+  .line-inner { display: block; }
+  .js:not(.no-motion) .line-inner { transform: translateY(110%); }
+  .js:not(.no-motion) .reveal { opacity: 0; transform: translateY(36px); }
+  .js:not(.no-motion) .reveal-stagger > * { opacity: 0; transform: translateY(28px); }
+
+  /* ---------- WebGL layer: white particles inverted against whatever is below ---------- */
+  #gl { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; mix-blend-mode: difference; }
+
+  /* ---------- Preloader ---------- */
+  .preloader { position: fixed; inset: 0; z-index: 200; background: var(--black); color: var(--white); display: none; flex-direction: column; justify-content: space-between; padding: 28px var(--gutter); }
+  .js:not(.ready):not(.reduced) .preloader { display: flex; }
+  .preloader-top, .preloader-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; }
+  .preloader-count { font-size: clamp(5rem, 19vw, 17rem); line-height: .8; letter-spacing: -.07em; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .preloader-bar { height: 1px; background: rgba(244,244,241,.2); margin-bottom: 20px; }
+  .preloader-bar span { display: block; height: 100%; background: var(--white); transform-origin: left; transform: scaleX(0); }
+
+  /* ---------- Chrome: progress, nav, cursor ---------- */
+  .progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; background: #fff; transform-origin: left; transform: scaleX(0); z-index: 52; mix-blend-mode: difference; pointer-events: none; }
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; color: #fff; mix-blend-mode: difference; transition: transform .7s var(--ease); }
+  .nav.is-hidden { transform: translateY(-110%); }
+  .menu-open .nav { transform: none; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px; }
+  .logo { font-weight: 600; font-size: 20px; letter-spacing: -.04em; display: inline-flex; align-items: flex-start; gap: 2px; }
+  .logo sup { font-size: 10px; font-weight: 500; margin-top: 3px; }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; }
+  .ulink { position: relative; display: inline-block; }
+  .ulink::after { content: ''; position: absolute; left: 0; right: 0; bottom: -3px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .6s var(--ease); }
+  .ulink:hover::after, .ulink:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+  .nav-right { display: flex; align-items: center; gap: 18px; }
+  .lang { display: inline-flex; align-items: center; gap: 6px; }
+  .lang button { opacity: .45; transition: opacity .3s; padding: 6px 2px; }
+  .lang button[aria-pressed="true"] { opacity: 1; }
+  .lang button:hover { opacity: 1; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 18px; border: 1px solid #fff; border-radius: 999px; font-size: 14px; transition: background .4s, color .4s; }
+  .pill:hover { background: #fff; color: #000; }
+  .menu-btn { display: none; width: 44px; height: 44px; position: relative; }
+  .menu-btn span { position: absolute; left: 10px; right: 10px; height: 1.5px; background: #fff; transition: transform .5s var(--ease); }
+  .menu-btn span:first-child { top: 18px; }
+  .menu-btn span:last-child { top: 25px; }
+  .menu-open .menu-btn span:first-child { transform: translateY(3.5px) rotate(45deg); }
+  .menu-open .menu-btn span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+
+  .menu { position: fixed; inset: 0; z-index: 45; background: var(--black); color: var(--white); display: flex; flex-direction: column; justify-content: space-between; padding: 110px var(--gutter) 32px; clip-path: inset(0 0 100% 0); visibility: hidden; transition: clip-path .8s var(--ease), visibility 0s linear .8s; }
+  .menu-open .menu { clip-path: inset(0 0 0 0); visibility: visible; transition: clip-path .8s var(--ease), visibility 0s; }
+  .menu-links { display: flex; flex-direction: column; }
+  .menu-links a { font-size: clamp(2.6rem, 12vw, 4.5rem); letter-spacing: -.05em; line-height: 1.05; font-weight: 500; padding: 6px 0; border-bottom: 1px solid rgba(244,244,241,.14); display: flex; justify-content: space-between; align-items: baseline; }
+  .menu-links a .mono { opacity: .5; }
+  .menu-foot a { text-transform: none; }
+  .menu-foot { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+
+  .cursor { position: fixed; top: 0; left: 0; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: #fff; mix-blend-mode: difference; pointer-events: none; z-index: 150; display: none; transition: width .45s var(--ease), height .45s var(--ease), margin .45s var(--ease); }
+  .has-cursor .cursor { display: block; }
+  .cursor.is-hover { width: 72px; height: 72px; margin: -36px 0 0 -36px; }
+  .has-cursor body, .has-cursor a, .has-cursor button { cursor: none; }
+
+  /* ---------- Buttons ---------- */
+  .btn { position: relative; display: inline-flex; align-items: center; gap: 12px; height: 56px; padding: 0 28px; border-radius: 999px; border: 1px solid var(--fg); color: var(--fg); font-size: 15px; font-weight: 500; overflow: hidden; isolation: isolate; transition: color .6s var(--ease), transform .6s var(--ease); }
+  .btn::before { content: ''; position: absolute; inset: -1px; background: var(--fg); border-radius: inherit; transform: translateY(101%); transition: transform .6s var(--ease); z-index: -1; }
+  .btn:hover { color: var(--bg); }
+  .btn:hover::before { transform: translateY(0); }
+  .btn--solid { background: var(--fg); color: var(--bg); }
+  .btn--solid::before { background: var(--bg); }
+  .btn--solid:hover { color: var(--fg); }
+  .btn .ico { font-size: 18px; transition: transform .6s var(--ease); }
+  .btn:hover .ico { transform: translateX(4px); }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding: 120px 0 28px; }
+  .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: clamp(20px, 3vw, 36px); color: var(--muted); }
+  .dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
+  .dot::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: currentColor; animation: ping 2s var(--ease) infinite; }
+  @keyframes ping { 0% { transform: scale(1); opacity: .7; } 80%, 100% { transform: scale(3); opacity: 0; } }
+  .hero-title { font-size: clamp(3rem, 9.4vw, 10.5rem); line-height: .9; letter-spacing: -.058em; font-weight: 500; }
+  .hero-title em { letter-spacing: -.035em; }
+  .hero-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 32px; margin-top: clamp(28px, 4vw, 48px); }
+  .hero-sub { max-width: 46ch; font-size: clamp(1rem, 1.25vw, 1.2rem); color: var(--muted); }
+  .hero-sub strong { color: var(--white); font-weight: 500; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(40px, 6vw, 72px); padding-top: 18px; border-top: 1px solid var(--line); }
+  .hero-meta > div { display: flex; align-items: center; gap: 10px; }
+  .hero-meta > div:nth-child(2) { justify-content: center; }
+  .hero-meta > div:last-child { justify-content: flex-end; }
+  .scroll-cue { display: inline-block; width: 1px; height: 28px; background: rgba(244,244,241,.25); position: relative; overflow: hidden; }
+  .scroll-cue::after { content: ''; position: absolute; left: 0; top: 0; width: 1px; height: 100%; background: var(--white); animation: cue 1.8s var(--ease) infinite; }
+  @keyframes cue { 0% { transform: translateY(-100%); } 60%, 100% { transform: translateY(100%); } }
+  .clock { font-variant-numeric: tabular-nums; }
+
+  /* ---------- Marquee ---------- */
+  .marquee { overflow: hidden; padding: clamp(22px, 3vw, 40px) 0; border-bottom: 1px solid var(--line); }
+  .marquee-track { display: flex; width: max-content; will-change: transform; }
+  .marquee-group { display: flex; align-items: center; gap: clamp(24px, 3vw, 52px); padding-right: clamp(24px, 3vw, 52px); font-size: clamp(2.4rem, 6.4vw, 6rem); font-weight: 500; letter-spacing: -.05em; line-height: 1; white-space: nowrap; }
+  .marquee-group .star { font-size: .35em; }
+
+  /* ---------- Sections ---------- */
+  .section { position: relative; padding: clamp(96px, 13vw, 190px) 0; }
+  .section-label { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 18px; border-bottom: 1px solid var(--line); margin-bottom: clamp(48px, 7vw, 104px); }
+  .h2 { font-size: clamp(2.7rem, 7.2vw, 7.4rem); line-height: .92; letter-spacing: -.055em; font-weight: 500; }
+  .lead { font-size: clamp(1.02rem, 1.25vw, 1.2rem); color: var(--muted); max-width: 48ch; }
+
+  /* About */
+  .manifesto { font-size: clamp(1.8rem, 4vw, 3.8rem); line-height: 1.08; letter-spacing: -.04em; font-weight: 500; max-width: 21em; }
+  .js:not(.no-motion) .manifesto .w { opacity: .13; }
+  .about-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; margin-top: clamp(64px, 8vw, 128px); }
+  .about-grid .mono { grid-column: 1 / span 4; color: var(--muted); }
+  .about-copy { grid-column: 5 / span 8; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 3vw, 48px); font-size: clamp(1rem, 1.15vw, 1.1rem); color: var(--muted); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: clamp(64px, 8vw, 128px); }
+  .stat { border-top: 1px solid var(--fg); padding-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .stat-num { font-size: clamp(3.2rem, 7vw, 6.8rem); line-height: .9; letter-spacing: -.065em; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+  /* Work */
+  .work-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: end; }
+  .work-head .h2 { grid-column: 1 / span 8; }
+  .work-head .lead { grid-column: 1 / span 5; }
+  .index-list { margin-top: clamp(56px, 7vw, 96px); border-top: 1px solid var(--line); }
+  .index-row { position: relative; display: grid; grid-template-columns: 72px minmax(0, 1.2fr) minmax(0, 1fr) 40px; align-items: center; gap: 16px; padding: clamp(18px, 2.2vw, 30px) 0; border-bottom: 1px solid var(--line); isolation: isolate; transition: color .5s var(--ease), padding .6s var(--ease); }
+  .index-row::before { content: ''; position: absolute; inset: 0 calc(var(--gutter) * -1); background: var(--white); transform: scaleY(0); transform-origin: bottom; transition: transform .6s var(--ease); z-index: -1; }
+  .index-name { font-size: clamp(1.9rem, 4.2vw, 3.8rem); letter-spacing: -.05em; line-height: 1; font-weight: 500; }
+  .index-name small { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: .5em; letter-spacing: -.01em; opacity: .6; margin-left: .3em; }
+  .index-row .ico { font-size: 28px; justify-self: end; transition: transform .6s var(--ease); }
+  @media (hover: hover) {
+    .index-row:hover { color: var(--black); padding-left: 14px; padding-right: 14px; }
+    .index-row:hover::before { transform: scaleY(1); transform-origin: top; }
+    .index-row:hover .ico { transform: rotate(45deg); }
+  }
+
+  .project { position: relative; padding: clamp(96px, 16vh, 190px) 0; border-top: 1px solid var(--line); }
+  .project:first-of-type { margin-top: clamp(80px, 10vw, 140px); }
+  .project-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: start; }
+  .project-body { grid-column: 1 / span 7; }
+  .project-aside { grid-column: 9 / span 4; position: sticky; top: 18vh; text-align: right; }
+  .project-num { font-size: clamp(8rem, 21vw, 21rem); line-height: .78; letter-spacing: -.08em; font-weight: 600; color: transparent; -webkit-text-stroke: 1px rgba(244,244,241,.32); user-select: none; }
+  .project-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--muted); }
+  .project-title { font-size: clamp(3.1rem, 7.6vw, 7.8rem); line-height: .9; letter-spacing: -.06em; font-weight: 500; margin-top: 22px; }
+  .project-title small { display: block; font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; color: var(--muted); margin-top: 16px; }
+  .project-tagline { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.7rem, 2.9vw, 2.7rem); line-height: 1.08; letter-spacing: -.02em; margin-top: 22px; max-width: 22em; }
+  .project-desc { font-size: clamp(1.02rem, 1.2vw, 1.16rem); color: var(--muted); max-width: 56ch; margin-top: 26px; }
+  .project-cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 3vw, 44px); margin-top: 48px; }
+  .project-cols h4 { margin-bottom: 12px; }
+  .project-cols p { color: var(--muted); font-size: 15px; }
+  .feature-list { list-style: none; padding: 0; margin-top: 44px; border-top: 1px solid var(--line); counter-reset: f; }
+  .feature-list li { display: flex; gap: 20px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+  .feature-list li::before { counter-increment: f; content: counter(f, decimal-leading-zero); font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+  .project-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; margin-top: 36px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px; }
+  .arrow-link { display: inline-flex; align-items: center; gap: 10px; font-weight: 500; }
+  .arrow-link .ico { font-size: 18px; transition: transform .6s var(--ease); }
+  .arrow-link:hover .ico { transform: translateX(6px); }
+
+  /* Stack */
+  .stack-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: end; margin-bottom: clamp(48px, 6vw, 88px); }
+  .stack-head .h2 { grid-column: 1 / span 9; }
+  .stack-head .lead { grid-column: 10 / span 3; }
+  .stack-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .stack-card { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-height: 290px; padding: 26px 26px 30px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; isolation: isolate; transition: color .55s var(--ease); }
+  .stack-card::before { content: ''; position: absolute; inset: 0; background: var(--black); transform: translateY(101%); transition: transform .65s var(--ease); z-index: -1; }
+  .stack-card-top { display: flex; justify-content: space-between; gap: 12px; }
+  .stack-card-top .mono { opacity: .6; }
+  .stack-card h3 { font-size: clamp(1.9rem, 2.6vw, 2.7rem); letter-spacing: -.05em; line-height: 1; font-weight: 500; }
+  .stack-card p { margin-top: 12px; font-size: 15px; opacity: .66; }
+  @media (hover: hover) {
+    .stack-card:hover { color: var(--white); }
+    .stack-card:hover::before { transform: translateY(0); }
+  }
+
+  /* Process */
+  .process-list { position: relative; max-width: 60%; margin-top: clamp(48px, 6vw, 88px); }
+  .process-rail { position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--line); }
+  .process-rail span { position: absolute; inset: 0; background: var(--white); transform-origin: top; transform: scaleY(0); }
+  .no-motion .process-rail span { transform: scaleY(1); }
+  .step { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 20px; padding: clamp(28px, 3.5vw, 44px) 0 clamp(28px, 3.5vw, 44px) clamp(20px, 3vw, 40px); border-bottom: 1px solid var(--line); }
+  .step h3 { font-size: clamp(2rem, 4vw, 3.8rem); letter-spacing: -.05em; line-height: 1; font-weight: 500; }
+  .step p { margin-top: 12px; color: var(--muted); max-width: 46ch; }
+  .step .mono { padding-top: 10px; color: var(--muted); }
+
+  /* Journey */
+  .journey-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 104px); margin-top: clamp(48px, 6vw, 88px); }
+  .journey-col > .mono { display: flex; justify-content: space-between; padding-bottom: 14px; color: var(--muted); }
+  .j-item { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 20px; padding: 26px 0; border-top: 1px solid var(--line); transition: padding .6s var(--ease); }
+  .j-item:last-child { border-bottom: 1px solid var(--line); }
+  .j-item .mono { color: var(--muted); padding-top: 6px; }
+  .j-item h4 { font-size: clamp(1.35rem, 1.9vw, 1.8rem); letter-spacing: -.035em; line-height: 1.15; font-weight: 500; }
+  .j-org { display: block; margin-top: 6px; font-family: var(--font-serif); font-style: italic; font-size: 1.15rem; }
+  .j-item p { margin-top: 10px; color: var(--muted); font-size: 15px; }
+  @media (hover: hover) { .j-item:hover { padding-left: 12px; } }
+
+  /* Contact */
+  .contact { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; padding-top: clamp(96px, 12vw, 170px); }
+  .contact-title { font-size: clamp(3.3rem, 11.5vw, 12.5rem); line-height: .86; letter-spacing: -.065em; font-weight: 500; }
+  .contact-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: end; margin-top: clamp(40px, 5vw, 72px); }
+  .email { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 28px; }
+  .email-link { position: relative; font-size: clamp(1.5rem, 4.2vw, 4rem); letter-spacing: -.045em; line-height: 1.1; font-weight: 500; overflow-wrap: anywhere; }
+  .email-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: currentColor; transform-origin: left; transition: transform .7s var(--ease); }
+  .email-link:hover::after { transform: scaleX(0); transform-origin: right; }
+  .copy-btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; transition: border-color .3s; }
+  .copy-btn:hover { border-color: var(--white); }
+  .socials { display: flex; flex-wrap: wrap; gap: 10px; }
+  .footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 28px 0; margin-top: clamp(72px, 9vw, 140px); border-top: 1px solid var(--line); color: var(--muted); }
+  .footer a { color: var(--white); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1100px) {
+    .project-body { grid-column: 1 / -1; }
+    .project-aside { grid-column: 1 / -1; grid-row: 1; position: static; text-align: left; }
+    .project-num { font-size: clamp(6rem, 26vw, 14rem); }
+    .stack-grid { grid-template-columns: repeat(2, 1fr); }
+    .stack-head .h2, .work-head .h2 { grid-column: 1 / -1; }
+    .stack-head .lead, .work-head .lead { grid-column: 1 / span 8; }
+    .process-list { max-width: 100%; }
+    .about-copy { grid-column: 1 / -1; }
+    .about-grid .mono { grid-column: 1 / -1; }
+  }
+  @media (max-width: 820px) {
+    .nav-links, .nav-right .pill { display: none; }
+    .menu-btn { display: block; }
+    .hero-row { grid-template-columns: 1fr; }
+    .hero-meta { grid-template-columns: 1fr 1fr; }
+    .hero-meta > div:nth-child(2) { display: none; }
+    .about-copy { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+    .index-row { grid-template-columns: 40px minmax(0, 1fr) 28px; }
+    .index-row .index-cat { display: none; }
+    .index-row .ico { font-size: 22px; }
+    .project-cols { grid-template-columns: 1fr; }
+    .journey-grid { grid-template-columns: 1fr; }
+    .contact-row { grid-template-columns: 1fr; }
+    .stack-head .lead, .work-head .lead { grid-column: 1 / -1; }
+  }
+  @media (max-width: 560px) {
+    .stack-grid { grid-template-columns: 1fr; }
+    .stack-card { min-height: 0; gap: 28px; }
+    .j-item { grid-template-columns: 1fr; gap: 8px; }
+    .step { grid-template-columns: 1fr; gap: 6px; }
+    .btn { height: 52px; padding: 0 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dot::after, .scroll-cue::after { animation: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
+<!-- Preloader -->
+<div class="preloader" aria-hidden="true">
+  <div class="preloader-top mono"><span>Muhamad Ridho Ardian</span><span>Portfolio ©2026</span></div>
+  <div>
+    <div class="preloader-bar"><span></span></div>
+    <div class="preloader-bottom">
+      <span class="mono" data-i18n="pre.loading">Loading experience</span>
+      <span class="preloader-count" id="pre-count">0</span>
+    </div>
+  </div>
+</div>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="progress" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
+
+<!-- Navigation -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo" data-hover aria-label="Ridho — back to top">Ridho<sup>©</sup></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="ulink" href="#work" data-i18n="nav.work">Work</a>
+      <a class="ulink" href="#about" data-i18n="nav.about">About</a>
+      <a class="ulink" href="#stack" data-i18n="nav.stack">Stack</a>
+      <a class="ulink" href="#journey" data-i18n="nav.journey">Journey</a>
+      <a class="ulink" href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang mono" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button><span aria-hidden="true">/</span><button type="button" data-lang="id" aria-pressed="false">ID</button>
+      </div>
+      <a class="pill" href="#contact" data-magnetic data-i18n="nav.cta">Let's talk</a>
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="menu-links" aria-label="Mobile">
+    <a href="#work"><span data-i18n="nav.work">Work</span><span class="mono">01</span></a>
+    <a href="#about"><span data-i18n="nav.about">About</span><span class="mono">02</span></a>
+    <a href="#stack"><span data-i18n="nav.stack">Stack</span><span class="mono">03</span></a>
+    <a href="#journey"><span data-i18n="nav.journey">Journey</span><span class="mono">04</span></a>
+    <a href="#contact"><span data-i18n="nav.contact">Contact</span><span class="mono">05</span></a>
+  </nav>
+  <div class="menu-foot mono">
+    <a data-link="email" data-text="email" href="#">your.email@example.com</a>
+    <span>WIB <span class="clock">--:--</span></span>
+  </div>
+</div>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero theme-dark" id="top" data-scene="hero">
+    <div class="container" data-intro>
+      <div class="hero-eyebrow mono reveal"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.eyebrow">Full-Stack Developer — Indonesia</span></div>
+      <h1 class="hero-title">
+        <span class="line"><span class="line-inner" data-i18n="hero.l1">I build</span></span>
+        <span class="line"><span class="line-inner" data-i18n="hero.l2">products people</span></span>
+        <span class="line"><span class="line-inner" data-i18n="hero.l3"><em>actually use.</em></span></span>
+      </h1>
+      <div class="hero-row">
+        <p class="hero-sub reveal" data-i18n="hero.sub">Hi, I'm <strong>Muhamad Ridho Ardian</strong>. I take ideas from a blank database to a live product — interface, API, business logic and deployment, handled end to end.</p>
+        <div class="hero-cta reveal">
+          <a class="btn btn--solid" href="#work" data-magnetic><span data-i18n="hero.cta1">See the work</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn" href="#contact" data-magnetic><span data-i18n="hero.cta2">Start a project</span></a>
+        </div>
+      </div>
+      <div class="hero-meta mono reveal">
+        <div><span class="dot" aria-hidden="true"></span><span data-i18n="hero.avail">Available for freelance &amp; full-time</span></div>
+        <div><span data-i18n="hero.time">Local time</span>&nbsp;<span class="clock">--:--</span>&nbsp;WIB</div>
+        <div><span data-i18n="hero.scroll">Scroll to explore</span><span class="scroll-cue" aria-hidden="true"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee theme-light">
+    <span class="sr-only">Tech stack: Laravel, React, PHP, MySQL, REST API, JavaScript, Git, Deployment</span>
+    <div class="marquee-track" aria-hidden="true">
+      <div class="marquee-group">
+        <span>Laravel</span><span class="star">✦</span><em>React</em><span class="star">✦</span><span>PHP</span><span class="star">✦</span><em>MySQL</em><span class="star">✦</span><span>REST API</span><span class="star">✦</span><em>JavaScript</em><span class="star">✦</span><span>Git</span><span class="star">✦</span><em>Deployment</em><span class="star">✦</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section theme-light" id="about" data-scene="about">
+    <div class="container">
+      <div class="section-label mono reveal"><span data-i18n="about.label">(01) About</span><span data-i18n="about.label2">Product-minded engineering</span></div>
+      <p class="manifesto" data-split data-i18n="about.manifesto">I don't just write code. I start with the problem — the spreadsheet that keeps breaking, the queue at the cashier, the student who forgot yesterday's kanji — and build the system that makes it disappear.</p>
+
+      <div class="about-grid">
+        <span class="mono reveal" data-i18n="about.side">How I think about software</span>
+        <div class="about-copy reveal-stagger">
+          <p data-i18n="about.p1">Every product I build starts the same way: understand how people really work, model the data honestly, then write code that stays readable long after launch day.</p>
+          <p data-i18n="about.p2">From relational schemas and REST APIs to responsive interfaces and server deployment — one developer owning the whole stack means fewer handoffs, fewer gaps, and a product that feels like one piece.</p>
+        </div>
+      </div>
+
+      <div class="stats reveal-stagger">
+        <div class="stat"><span class="stat-num" data-count="5" data-pad="2">05</span><span class="mono" data-i18n="stat.1">Products built</span></div>
+        <div class="stat"><span class="stat-num" data-count="5" data-pad="2">05</span><span class="mono" data-i18n="stat.2">Industries explored</span></div>
+        <div class="stat"><span class="stat-num">E2E</span><span class="mono" data-i18n="stat.3">Full-stack ownership</span></div>
+        <div class="stat"><span class="stat-num" data-count="2" data-pad="2">02</span><span class="mono" data-i18n="stat.4">Degrees in IT</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section class="section theme-dark" id="work">
+    <div class="container" data-scene="work">
+      <div class="section-label mono reveal"><span data-i18n="work.label">(02) Selected Work</span><span data-i18n="work.count">05 Projects</span></div>
+      <div class="work-head">
+        <h2 class="h2 reveal-lines">
+          <span class="line"><span class="line-inner" data-i18n="work.l1">Five problems.</span></span>
+          <span class="line"><span class="line-inner" data-i18n="work.l2"><em>Five products.</em></span></span>
+        </h2>
+        <p class="lead reveal" data-i18n="work.sub">Different industries, one obsession: make the complicated feel simple for the person on the other side of the screen.</p>
+      </div>
+
+      <div class="index-list reveal-stagger">
+        <a class="index-row" href="#imperium" data-hover><span class="mono">01</span><span class="index-name">Imperium Dawn</span><span class="index-cat mono muted" data-i18n="cat.1">Browser strategy game</span><svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a class="index-row" href="#edogo" data-hover><span class="mono">02</span><span class="index-name">EdoGo</span><span class="index-cat mono muted" data-i18n="cat.2">Japanese learning platform</span><svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a class="index-row" href="#lpkgo" data-hover><span class="mono">03</span><span class="index-name">LPKGo<small>EdoGo LPK</small></span><span class="index-cat mono muted" data-i18n="cat.3">Training institute management</span><svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a class="index-row" href="#alfirdaus" data-hover><span class="mono">04</span><span class="index-name">AlFirdaus</span><span class="index-cat mono muted" data-i18n="cat.4">Islamic school platform</span><svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a class="index-row" href="#tajirpos" data-hover><span class="mono">05</span><span class="index-name">TajirPOS</span><span class="index-cat mono muted" data-i18n="cat.5">Point of sale for SMEs</span><svg class="ico" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Project 01 — Imperium Dawn -->
+    <article class="project" id="imperium" data-scene="imperium">
+      <div class="container project-grid">
+        <div class="project-body">
+          <div class="project-meta mono reveal"><span>01 / 05</span><span data-i18n="cat.1">Browser strategy game</span></div>
+          <h3 class="project-title reveal-lines"><span class="line"><span class="line-inner">Imperium Dawn</span></span></h3>
+          <p class="project-tagline reveal" data-i18n="p1.tag">An empire that keeps growing — even while you sleep.</p>
+          <p class="project-desc reveal" data-i18n="p1.desc">A browser-based strategy game where players build a planetary empire, run a living economy, and outthink rivals one decision at a time. Under the hood it's a real-time simulation: resources tick, queues resolve, and every player's state stays consistent.</p>
+          <div class="project-cols reveal-stagger">
+            <div><h4 class="mono" data-i18n="lbl.challenge">The challenge</h4><p data-i18n="p1.challenge">Game time never stops, but servers do. Progress has to be calculated fairly and precisely for every player — online or not.</p></div>
+            <div><h4 class="mono" data-i18n="lbl.build">What I built</h4><p data-i18n="p1.build">A tick-based economy engine in Laravel, transactional state persistence in MySQL, and build &amp; research queues that resolve predictably.</p></div>
+          </div>
+          <ul class="feature-list reveal-stagger">
+            <li data-i18n="p1.f1">Resource production loop</li>
+            <li data-i18n="p1.f2">Building &amp; research queues</li>
+            <li data-i18n="p1.f3">Player progression system</li>
+            <li data-i18n="p1.f4">Consistent, persistent game state</li>
+          </ul>
+          <div class="project-foot reveal">
+            <div class="tags"><span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Game Logic</span></div>
+            <a class="arrow-link ulink" href="#contact"><span data-i18n="lbl.discuss">Discuss a similar project</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+        <div class="project-aside" aria-hidden="true"><div class="project-num">01</div></div>
+      </div>
+    </article>
+
+    <!-- Project 02 — EdoGo -->
+    <article class="project" id="edogo" data-scene="edogo">
+      <div class="container project-grid">
+        <div class="project-body">
+          <div class="project-meta mono reveal"><span>02 / 05</span><span data-i18n="cat.2">Japanese learning platform</span></div>
+          <h3 class="project-title reveal-lines"><span class="line"><span class="line-inner">EdoGo</span></span></h3>
+          <p class="project-tagline reveal" data-i18n="p2.tag">From kana to kanji, one daily habit at a time.</p>
+          <p class="project-desc reveal" data-i18n="p2.desc">A Japanese learning platform built around how memory actually works. Structured lessons, interactive practice and spaced repetition turn last-minute cramming into a daily habit learners can keep.</p>
+          <div class="project-cols reveal-stagger">
+            <div><h4 class="mono" data-i18n="lbl.challenge">The challenge</h4><p data-i18n="p2.challenge">Most learners don't quit because Japanese is hard — they quit because their progress feels invisible.</p></div>
+            <div><h4 class="mono" data-i18n="lbl.build">What I built</h4><p data-i18n="p2.build">A React front end for fast, interactive drills, backed by a Laravel REST API that records every review and schedules the next one.</p></div>
+          </div>
+          <ul class="feature-list reveal-stagger">
+            <li data-i18n="p2.f1">Hiragana, katakana &amp; kanji drills</li>
+            <li data-i18n="p2.f2">Spaced-repetition reviews</li>
+            <li data-i18n="p2.f3">Interactive quizzes</li>
+            <li data-i18n="p2.f4">Progress learners can actually see</li>
+          </ul>
+          <div class="project-foot reveal">
+            <div class="tags"><span class="tag">React</span><span class="tag">Laravel</span><span class="tag">REST API</span><span class="tag">MySQL</span></div>
+            <a class="arrow-link ulink" href="#contact"><span data-i18n="lbl.discuss">Discuss a similar project</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+        <div class="project-aside" aria-hidden="true"><div class="project-num">02</div></div>
+      </div>
+    </article>
+
+    <!-- Project 03 — LPKGo (EdoGo LPK) -->
+    <article class="project" id="lpkgo" data-scene="lpkgo">
+      <div class="container project-grid">
+        <div class="project-body">
+          <div class="project-meta mono reveal"><span>03 / 05</span><span data-i18n="cat.3">Training institute management</span></div>
+          <h3 class="project-title reveal-lines"><span class="line"><span class="line-inner">LPKGo<small>EdoGo LPK</small></span></span></h3>
+          <p class="project-tagline reveal" data-i18n="p3.tag">Run the entire institute from one screen.</p>
+          <p class="project-desc reveal" data-i18n="p3.desc">The operations side of the EdoGo ecosystem. LPKGo replaces scattered spreadsheets and paper forms with one system for student registration, class batches, payments and instructors — so the team spends less time on admin and more time on training.</p>
+          <div class="project-cols reveal-stagger">
+            <div><h4 class="mono" data-i18n="lbl.challenge">The challenge</h4><p data-i18n="p3.challenge">In many training institutes, student data, schedules and payments live in separate files owned by different people. One missed update means hours of reconciliation.</p></div>
+            <div><h4 class="mono" data-i18n="lbl.build">What I built</h4><p data-i18n="p3.build">A role-based Laravel + React platform on a normalized MySQL schema, with a REST API that keeps every module in sync.</p></div>
+          </div>
+          <ul class="feature-list reveal-stagger">
+            <li data-i18n="p3.f1">Student enrollment records</li>
+            <li data-i18n="p3.f2">Batch &amp; class scheduling</li>
+            <li data-i18n="p3.f3">Payment tracking</li>
+            <li data-i18n="p3.f4">Role-based access for staff &amp; instructors</li>
+          </ul>
+          <div class="project-foot reveal">
+            <div class="tags"><span class="tag">Laravel</span><span class="tag">React</span><span class="tag">MySQL</span><span class="tag">REST API</span></div>
+            <a class="arrow-link ulink" href="#contact"><span data-i18n="lbl.discuss">Discuss a similar project</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+        <div class="project-aside" aria-hidden="true"><div class="project-num">03</div></div>
+      </div>
+    </article>
+
+    <!-- Project 04 — AlFirdaus -->
+    <article class="project" id="alfirdaus" data-scene="alfirdaus">
+      <div class="container project-grid">
+        <div class="project-body">
+          <div class="project-meta mono reveal"><span>04 / 05</span><span data-i18n="cat.4">Islamic school platform</span></div>
+          <h3 class="project-title reveal-lines"><span class="line"><span class="line-inner">AlFirdaus</span></span></h3>
+          <p class="project-tagline reveal" data-i18n="p4.tag">Timeless values, with a modern digital home.</p>
+          <p class="project-desc reveal" data-i18n="p4.desc">A digital home for Al-Firdaus — one place where parents, students and staff find what they need: school profile, programs, announcements and admissions information, with an admin panel the school team can run on their own.</p>
+          <div class="project-cols reveal-stagger">
+            <div><h4 class="mono" data-i18n="lbl.challenge">The challenge</h4><p data-i18n="p4.challenge">Parents shouldn't have to scroll through a WhatsApp group just to find a schedule or an admission requirement.</p></div>
+            <div><h4 class="mono" data-i18n="lbl.build">What I built</h4><p data-i18n="p4.build">A responsive, content-managed Laravel site with a simple admin panel, so non-technical staff can publish updates in minutes.</p></div>
+          </div>
+          <ul class="feature-list reveal-stagger">
+            <li data-i18n="p4.f1">School profile &amp; programs</li>
+            <li data-i18n="p4.f2">News &amp; announcements</li>
+            <li data-i18n="p4.f3">Admissions information</li>
+            <li data-i18n="p4.f4">Easy-to-use admin panel</li>
+          </ul>
+          <div class="project-foot reveal">
+            <div class="tags"><span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">CMS</span></div>
+            <a class="arrow-link ulink" href="#contact"><span data-i18n="lbl.discuss">Discuss a similar project</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+        <div class="project-aside" aria-hidden="true"><div class="project-num">04</div></div>
+      </div>
+    </article>
+
+    <!-- Project 05 — TajirPOS -->
+    <article class="project" id="tajirpos" data-scene="tajirpos">
+      <div class="container project-grid">
+        <div class="project-body">
+          <div class="project-meta mono reveal"><span>05 / 05</span><span data-i18n="cat.5">Point of sale for SMEs</span></div>
+          <h3 class="project-title reveal-lines"><span class="line"><span class="line-inner">TajirPOS</span></span></h3>
+          <p class="project-tagline reveal" data-i18n="p5.tag">Faster checkout. Clearer numbers. A richer business.</p>
+          <p class="project-desc reveal" data-i18n="p5.desc">A point-of-sale system for small and growing businesses. TajirPOS turns every transaction into data an owner can use: fast checkout at the counter, stock that updates itself, and sales reports that show what's really selling.</p>
+          <div class="project-cols reveal-stagger">
+            <div><h4 class="mono" data-i18n="lbl.challenge">The challenge</h4><p data-i18n="p5.challenge">For many small shops, the notebook behind the counter is the entire business intelligence system — and it can't warn you when stock is running low.</p></div>
+            <div><h4 class="mono" data-i18n="lbl.build">What I built</h4><p data-i18n="p5.build">A fast, keyboard-friendly cashier interface backed by a transactional sales and inventory engine, with daily reports built in.</p></div>
+          </div>
+          <ul class="feature-list reveal-stagger">
+            <li data-i18n="p5.f1">Fast checkout &amp; receipts</li>
+            <li data-i18n="p5.f2">Real-time stock tracking</li>
+            <li data-i18n="p5.f3">Sales &amp; profit reports</li>
+            <li data-i18n="p5.f4">Multi-product catalog</li>
+          </ul>
+          <div class="project-foot reveal">
+            <div class="tags"><span class="tag">Laravel</span><span class="tag">React</span><span class="tag">MySQL</span><span class="tag">REST API</span></div>
+            <a class="arrow-link ulink" href="#contact"><span data-i18n="lbl.discuss">Discuss a similar project</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+        <div class="project-aside" aria-hidden="true"><div class="project-num">05</div></div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section class="section theme-light" id="stack" data-scene="stack">
+    <div class="container">
+      <div class="section-label mono reveal"><span data-i18n="stack.label">(03) Stack</span><span data-i18n="stack.label2">Tools of the trade</span></div>
+      <div class="stack-head">
+        <h2 class="h2 reveal-lines">
+          <span class="line"><span class="line-inner" data-i18n="stack.l1">Tools matter.</span></span>
+          <span class="line"><span class="line-inner" data-i18n="stack.l2"><em>Solving the problem matters more.</em></span></span>
+        </h2>
+        <p class="lead reveal" data-i18n="stack.sub">A focused, modern stack I know deeply — so the tech never gets in the way of the product.</p>
+      </div>
+      <div class="stack-grid reveal-stagger">
+        <div class="stack-card" data-hover><div class="stack-card-top mono"><span>01</span><span>Backend</span></div><div><h3>Laravel</h3><p data-i18n="sk.1">APIs, authentication, queues and the business logic that holds a product together.</p></div></div>
+        <div class="stack-card" data-hover><div class="stack-card-top mono"><span>02</span><span>Frontend</span></div><div><h3>React</h3><p data-i18n="sk.2">Fast, component-driven interfaces with state that stays predictable.</p></div></div>
+        <div class="stack-card" data-hover><div class="stack-card-top mono"><span>03</span><span data-i18n="skc.lang">Language</span></div><div><h3>PHP</h3><p data-i18n="sk.3">Clean, object-oriented server code that's easy to read and easy to extend.</p></div></div>
+        <div class="stack-card" data-hover><div class="stack-card-top mono"><span>04</span><span data-i18n="skc.db">Database</span></div><div><h3>MySQL</h3><p data-i18n="sk.4">Relational schemas, indexes and queries designed for real-world data.</p></div></div>
+        <div class="stack-card" data-hover><div class="stack-card-top mono"><span>05</span><span data-i18n="skc.arch">Architecture</span></div><div><h3>REST API</h3><p data-i18n="sk.5">Clear contracts, consistent JSON and token auth that any frontend can trust.</p></div></div>
+        <div class="stack-card" data-hover><div class="stack-card-top mono"><span>06</span><span data-i18n="skc.lang">Language</span></div><div><h3>JavaScript</h3><p data-i18n="sk.6">Modern ES6+, async flows and interactions that feel alive.</p></div></div>
+        <div class="stack-card" data-hover><div class="stack-card-top mono"><span>07</span><span data-i18n="skc.flow">Workflow</span></div><div><h3>Git</h3><p data-i18n="sk.7">Disciplined branches and commits, so every change has a story.</p></div></div>
+        <div class="stack-card" data-hover><div class="stack-card-top mono"><span>08</span><span>DevOps</span></div><div><h3>Deployment</h3><p data-i18n="sk.8">Servers, Nginx, domains and DNS — from localhost to live.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="section theme-dark" id="process" data-scene="process">
+    <div class="container">
+      <div class="section-label mono reveal"><span data-i18n="process.label">(04) Process</span><span data-i18n="process.label2">How we'll work together</span></div>
+      <h2 class="h2 reveal-lines">
+        <span class="line"><span class="line-inner" data-i18n="process.l1">From first call</span></span>
+        <span class="line"><span class="line-inner" data-i18n="process.l2"><em>to launch day.</em></span></span>
+      </h2>
+      <div class="process-list">
+        <div class="process-rail" aria-hidden="true"><span></span></div>
+        <div class="step reveal"><span class="mono">01</span><div><h3 data-i18n="step1.t">Discover</h3><p data-i18n="step1.d">We map the problem, the people and the workflow before a single line of code is written.</p></div></div>
+        <div class="step reveal"><span class="mono">02</span><div><h3 data-i18n="step2.t">Model</h3><p data-i18n="step2.d">Data comes first: a clean schema and clear API contracts the whole product can stand on.</p></div></div>
+        <div class="step reveal"><span class="mono">03</span><div><h3 data-i18n="step3.t">Build</h3><p data-i18n="step3.d">Frontend, backend and business logic, built in short cycles you can see, click and test.</p></div></div>
+        <div class="step reveal"><span class="mono">04</span><div><h3 data-i18n="step4.t">Ship</h3><p data-i18n="step4.d">Deployed, monitored and handed over properly — with room to grow.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JOURNEY ============ -->
+  <section class="section theme-light" id="journey" data-scene="journey">
+    <div class="container">
+      <div class="section-label mono reveal"><span data-i18n="journey.label">(05) Journey</span><span data-i18n="journey.label2">Experience &amp; education</span></div>
+      <h2 class="h2 reveal-lines">
+        <span class="line"><span class="line-inner" data-i18n="journey.l1">The foundation</span></span>
+        <span class="line"><span class="line-inner" data-i18n="journey.l2"><em>behind the code.</em></span></span>
+      </h2>
+      <div class="journey-grid">
+        <div class="journey-col reveal-stagger">
+          <div class="mono"><span data-i18n="journey.exp">Experience</span><span>03</span></div>
+          <div class="j-item"><span class="mono" data-i18n="j.now">Present</span><div><h4 data-i18n="j1.t">Freelance Full-Stack Developer</h4><span class="j-org" data-i18n="j1.o">Independent</span><p data-i18n="j1.d">Designing and building web apps, SaaS products and APIs for founders and organisations — from the first schema to the production server.</p></div></div>
+          <div class="j-item"><span class="mono" data-i18n="j.proj">Projects</span><div><h4 data-i18n="j2.t">SaaS &amp; Web Application Development</h4><span class="j-org">LPKGo · AlFirdaus · TajirPOS</span><p data-i18n="j2.d">Management platforms, authentication systems and complex business workflows, built to be maintained and ready to grow.</p></div></div>
+          <div class="j-item"><span class="mono" data-i18n="j.proj">Projects</span><div><h4 data-i18n="j3.t">Browser Game &amp; EdTech Development</h4><span class="j-org">Imperium Dawn · EdoGo</span><p data-i18n="j3.d">Backend-driven game mechanics, economic loops and persistent progression — plus learning tools designed around real study habits.</p></div></div>
+        </div>
+        <div class="journey-col reveal-stagger">
+          <div class="mono"><span data-i18n="journey.edu">Education</span><span>02</span></div>
+          <div class="j-item"><span class="mono" data-i18n="e1.deg">Bachelor's</span><div><h4 data-i18n="e1.t">Informatics</h4><span class="j-org">Universitas Siber Asia</span><p data-i18n="e1.d">Software engineering, algorithms, data structures and system architecture.</p></div></div>
+          <div class="j-item"><span class="mono" data-i18n="e2.deg">Diploma</span><div><h4 data-i18n="e2.t">Information Technology</h4><span class="j-org">Universitas Pakuan</span><p data-i18n="e2.d">Databases, web programming, networking and object-oriented programming.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact theme-dark" id="contact" data-scene="contact">
+    <div class="container">
+      <div class="section-label mono reveal"><span data-i18n="contact.label">(06) Contact</span><span><span class="dot" aria-hidden="true" style="display:inline-block;margin-right:10px"></span><span data-i18n="contact.status">Open for new projects</span></span></div>
+      <h2 class="contact-title reveal-lines">
+        <span class="line"><span class="line-inner" data-i18n="contact.l1">Have an idea?</span></span>
+        <span class="line"><span class="line-inner" data-i18n="contact.l2"><em>Let's make it real.</em></span></span>
+      </h2>
+      <div class="contact-row">
+        <div>
+          <p class="lead reveal" data-i18n="contact.sub">Open to freelance projects, full-time roles and collaborations. Tell me what you're building — and let's find the best way to ship it.</p>
+          <div class="email reveal">
+            <a class="email-link" data-link="email" data-text="email" data-hover href="#">your.email@example.com</a>
+            <button class="copy-btn mono" type="button" id="copy-email"><svg class="ico" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><span data-i18n="contact.copy">Copy</span></button>
+          </div>
+        </div>
+        <div class="socials reveal">
+          <a class="btn" data-link="github" href="#" target="_blank" rel="noopener noreferrer" data-magnetic>GitHub</a>
+          <a class="btn" data-link="linkedin" href="#" target="_blank" rel="noopener noreferrer" data-magnetic>LinkedIn</a>
+          <a class="btn btn--solid" data-link="email" href="#" data-magnetic><span data-i18n="contact.cta">Email me</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <footer class="footer mono">
+        <span>© 2026 Muhamad Ridho Ardian</span>
+        <span data-i18n="footer.made">Designed &amp; built by Ridho</span>
+        <a class="ulink" href="#top" data-i18n="footer.top">Back to top ↑</a>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script type="importmap">
+  { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js" } }
+</script>
+<script type="module">
+/* ==========================================================================
+   Edit your contact details here — they are applied everywhere on the page.
+   ========================================================================== */
+const CONFIG = {
+  email: 'your.email@example.com',
+  github: 'https://github.com/',
+  linkedin: 'https://www.linkedin.com/',
+};
+
+const root = document.documentElement;
+const reduced = root.classList.contains('reduced');
+const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+const $ = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const noMotion = () => root.classList.contains('no-motion');
+
+/* ---------------------------- Contact links ---------------------------- */
+const LINKS = { email: 'mailto:' + CONFIG.email, github: CONFIG.github, linkedin: CONFIG.linkedin };
+$$('[data-link]').forEach((a) => { a.href = LINKS[a.dataset.link]; });
+$$('[data-text="email"]').forEach((el) => { el.textContent = CONFIG.email; });
+
+/* ------------------------------ Indonesian ------------------------------ */
+const ID = {
+  'a11y.skip': 'Langsung ke konten',
+  'pre.loading': 'Menyiapkan pengalaman',
+  'nav.work': 'Karya', 'nav.about': 'Tentang', 'nav.stack': 'Keahlian', 'nav.journey': 'Perjalanan', 'nav.contact': 'Kontak', 'nav.cta': 'Ngobrol yuk',
+  'hero.eyebrow': 'Full-Stack Developer — Indonesia',
+  'hero.l1': 'Saya membangun', 'hero.l2': 'produk yang', 'hero.l3': '<em>benar-benar dipakai.</em>',
+  'hero.sub': 'Halo, saya <strong>Muhamad Ridho Ardian</strong>. Saya membawa ide dari database kosong sampai jadi produk yang hidup — antarmuka, API, logika bisnis, hingga deployment, saya tangani dari ujung ke ujung.',
+  'hero.cta1': 'Lihat karya', 'hero.cta2': 'Mulai proyek',
+  'hero.avail': 'Terbuka untuk freelance &amp; full-time', 'hero.time': 'Waktu lokal', 'hero.scroll': 'Gulir untuk menjelajah',
+  'about.label': '(01) Tentang', 'about.label2': 'Engineering berpikir produk',
+  'about.manifesto': 'Saya tidak sekadar menulis kode. Saya mulai dari masalahnya — spreadsheet yang terus berantakan, antrean panjang di kasir, murid yang lupa kanji kemarin — lalu membangun sistem yang membuat masalah itu hilang.',
+  'about.side': 'Cara saya memandang software',
+  'about.p1': 'Setiap produk yang saya bangun dimulai dengan cara yang sama: memahami cara orang benar-benar bekerja, memodelkan datanya dengan jujur, lalu menulis kode yang tetap mudah dibaca lama setelah hari peluncuran.',
+  'about.p2': 'Dari skema relasional dan REST API sampai antarmuka responsif dan deployment server — satu developer yang memegang seluruh stack berarti lebih sedikit serah-terima, lebih sedikit celah, dan produk yang terasa utuh.',
+  'stat.1': 'Produk dibangun', 'stat.2': 'Industri dijelajahi', 'stat.3': 'Full-stack dari ujung ke ujung', 'stat.4': 'Gelar di bidang TI',
+  'work.label': '(02) Karya Pilihan', 'work.count': '05 Proyek', 'work.l1': 'Lima masalah.', 'work.l2': '<em>Lima produk.</em>',
+  'work.sub': 'Industri berbeda, satu obsesi yang sama: membuat hal rumit terasa sederhana bagi orang di balik layar.',
+  'cat.1': 'Game strategi berbasis browser', 'cat.2': 'Platform belajar bahasa Jepang', 'cat.3': 'Sistem manajemen LPK', 'cat.4': 'Platform digital sekolah Islam', 'cat.5': 'Aplikasi kasir untuk UMKM',
+  'lbl.challenge': 'Tantangannya', 'lbl.build': 'Yang saya bangun', 'lbl.discuss': 'Diskusikan proyek serupa',
+  'p1.tag': 'Kekaisaran yang terus tumbuh — bahkan saat kamu tidur.',
+  'p1.desc': 'Game strategi berbasis browser di mana pemain membangun kekaisaran antarplanet, mengelola ekonomi yang terus bergerak, dan mengalahkan lawan lewat keputusan demi keputusan. Di balik layar, ini adalah simulasi real-time: sumber daya terus bertambah, antrean terselesaikan, dan state setiap pemain tetap konsisten.',
+  'p1.challenge': 'Waktu di dalam game tidak pernah berhenti, tetapi server bisa. Progres harus dihitung secara adil dan presisi untuk setiap pemain — online maupun tidak.',
+  'p1.build': 'Mesin ekonomi berbasis tick di Laravel, penyimpanan state transaksional di MySQL, serta antrean bangunan &amp; riset yang terselesaikan secara terprediksi.',
+  'p1.f1': 'Siklus produksi sumber daya', 'p1.f2': 'Antrean bangunan &amp; riset', 'p1.f3': 'Sistem progres pemain', 'p1.f4': 'State game yang konsisten &amp; persisten',
+  'p2.tag': 'Dari kana ke kanji, satu kebiasaan setiap hari.',
+  'p2.desc': 'Platform belajar bahasa Jepang yang dirancang sesuai cara kerja ingatan. Materi terstruktur, latihan interaktif, dan spaced repetition mengubah belajar kebut semalam menjadi kebiasaan harian yang mudah dijaga.',
+  'p2.challenge': 'Kebanyakan pelajar berhenti bukan karena bahasa Jepang itu sulit — tetapi karena progres mereka tidak terasa.',
+  'p2.build': 'Frontend React untuk latihan yang cepat dan interaktif, didukung REST API Laravel yang mencatat setiap review dan menjadwalkan review berikutnya.',
+  'p2.f1': 'Latihan hiragana, katakana &amp; kanji', 'p2.f2': 'Review dengan spaced repetition', 'p2.f3': 'Kuis interaktif', 'p2.f4': 'Progres belajar yang benar-benar terlihat',
+  'p3.tag': 'Kelola seluruh lembaga dari satu layar.',
+  'p3.desc': 'Sisi operasional dari ekosistem EdoGo. LPKGo menggantikan spreadsheet yang tercecer dan formulir kertas dengan satu sistem untuk pendaftaran siswa, angkatan kelas, pembayaran, dan instruktur — sehingga tim lebih sedikit mengurus administrasi dan lebih fokus melatih.',
+  'p3.challenge': 'Di banyak LPK, data siswa, jadwal, dan pembayaran tersimpan di file terpisah yang dipegang orang berbeda. Satu update terlewat berarti berjam-jam mencocokkan ulang.',
+  'p3.build': 'Platform Laravel + React berbasis peran di atas skema MySQL yang ternormalisasi, dengan REST API yang menjaga setiap modul tetap sinkron.',
+  'p3.f1': 'Data pendaftaran siswa', 'p3.f2': 'Penjadwalan angkatan &amp; kelas', 'p3.f3': 'Pencatatan pembayaran', 'p3.f4': 'Hak akses berbasis peran untuk staf &amp; instruktur',
+  'p4.tag': 'Nilai yang abadi, dengan rumah digital yang modern.',
+  'p4.desc': 'Rumah digital untuk Al-Firdaus — satu tempat bagi orang tua, siswa, dan staf untuk menemukan apa yang mereka butuhkan: profil sekolah, program, pengumuman, dan informasi penerimaan siswa baru, lengkap dengan panel admin yang bisa dikelola tim sekolah secara mandiri.',
+  'p4.challenge': 'Orang tua tidak seharusnya menggulir grup WhatsApp hanya untuk menemukan jadwal atau syarat pendaftaran.',
+  'p4.build': 'Situs Laravel yang responsif dan mudah dikelola, dengan panel admin sederhana sehingga staf non-teknis bisa memublikasikan informasi dalam hitungan menit.',
+  'p4.f1': 'Profil &amp; program sekolah', 'p4.f2': 'Berita &amp; pengumuman', 'p4.f3': 'Informasi penerimaan siswa baru (PPDB)', 'p4.f4': 'Panel admin yang mudah digunakan',
+  'p5.tag': 'Aplikasi kasir yang bikin usaha makin tajir.',
+  'p5.desc': 'Sistem kasir untuk usaha kecil dan yang sedang bertumbuh. TajirPOS mengubah setiap transaksi menjadi data yang bisa dipakai pemilik usaha: checkout cepat di kasir, stok yang ter-update otomatis, dan laporan penjualan yang menunjukkan produk mana yang benar-benar laku.',
+  'p5.challenge': 'Bagi banyak toko kecil, buku catatan di balik meja kasir adalah seluruh sistem analisis bisnisnya — dan buku itu tidak bisa memberi tahu saat stok hampir habis.',
+  'p5.build': 'Antarmuka kasir yang cepat dan ramah keyboard, didukung mesin penjualan dan inventori yang transaksional, lengkap dengan laporan harian.',
+  'p5.f1': 'Checkout cepat &amp; struk', 'p5.f2': 'Pantau stok secara real-time', 'p5.f3': 'Laporan penjualan &amp; laba', 'p5.f4': 'Katalog multi-produk',
+  'stack.label': '(03) Keahlian', 'stack.label2': 'Perkakas kerja', 'stack.l1': 'Tools itu penting.', 'stack.l2': '<em>Menyelesaikan masalah jauh lebih penting.</em>',
+  'stack.sub': 'Stack modern yang fokus dan saya kuasai dengan dalam — supaya teknologi tidak pernah menghalangi produk.',
+  'skc.lang': 'Bahasa', 'skc.db': 'Basis Data', 'skc.arch': 'Arsitektur', 'skc.flow': 'Alur Kerja',
+  'sk.1': 'API, autentikasi, queue, dan logika bisnis yang menyatukan sebuah produk.',
+  'sk.2': 'Antarmuka berbasis komponen yang cepat dengan state yang tetap terprediksi.',
+  'sk.3': 'Kode server berorientasi objek yang bersih, mudah dibaca dan mudah dikembangkan.',
+  'sk.4': 'Skema relasional, indeks, dan query yang dirancang untuk data dunia nyata.',
+  'sk.5': 'Kontrak yang jelas, JSON yang konsisten, dan autentikasi token yang bisa diandalkan frontend mana pun.',
+  'sk.6': 'ES6+ modern, alur async, dan interaksi yang terasa hidup.',
+  'sk.7': 'Branch dan commit yang disiplin, sehingga setiap perubahan punya cerita.',
+  'sk.8': 'Server, Nginx, domain, dan DNS — dari localhost sampai live.',
+  'process.label': '(04) Cara Kerja', 'process.label2': 'Bagaimana kita akan bekerja sama', 'process.l1': 'Dari obrolan pertama', 'process.l2': '<em>sampai hari peluncuran.</em>',
+  'step1.t': 'Pahami', 'step1.d': 'Kita petakan masalah, penggunanya, dan alur kerjanya sebelum satu baris kode pun ditulis.',
+  'step2.t': 'Rancang', 'step2.d': 'Data lebih dulu: skema yang rapi dan kontrak API yang jelas sebagai fondasi seluruh produk.',
+  'step3.t': 'Bangun', 'step3.d': 'Frontend, backend, dan logika bisnis, dibangun dalam siklus pendek yang bisa kamu lihat, klik, dan uji.',
+  'step4.t': 'Rilis', 'step4.d': 'Di-deploy, dipantau, dan diserahterimakan dengan rapi — dengan ruang untuk terus berkembang.',
+  'journey.label': '(05) Perjalanan', 'journey.label2': 'Pengalaman &amp; pendidikan', 'journey.l1': 'Fondasi', 'journey.l2': '<em>di balik kode.</em>',
+  'journey.exp': 'Pengalaman', 'journey.edu': 'Pendidikan', 'j.now': 'Sekarang', 'j.proj': 'Proyek',
+  'j1.t': 'Freelance Full-Stack Developer', 'j1.o': 'Independen',
+  'j1.d': 'Merancang dan membangun aplikasi web, produk SaaS, dan API untuk founder dan organisasi — dari skema pertama sampai server produksi.',
+  'j2.t': 'Pengembangan SaaS &amp; Aplikasi Web', 'j2.d': 'Platform manajemen, sistem autentikasi, dan alur bisnis yang kompleks, dibangun agar mudah dirawat dan siap berkembang.',
+  'j3.t': 'Pengembangan Game Browser &amp; EdTech', 'j3.d': 'Mekanik game berbasis backend, siklus ekonomi, dan progres yang persisten — plus alat belajar yang dirancang sesuai kebiasaan belajar nyata.',
+  'e1.deg': 'Sarjana (S1)', 'e1.t': 'Informatika', 'e1.d': 'Rekayasa perangkat lunak, algoritma, struktur data, dan arsitektur sistem.',
+  'e2.deg': 'Diploma', 'e2.t': 'Teknologi Informasi', 'e2.d': 'Basis data, pemrograman web, jaringan, dan pemrograman berorientasi objek.',
+  'contact.label': '(06) Kontak', 'contact.status': 'Terbuka untuk proyek baru', 'contact.l1': 'Punya ide?', 'contact.l2': '<em>Ayo wujudkan.</em>',
+  'contact.sub': 'Terbuka untuk proyek freelance, posisi full-time, dan kolaborasi. Ceritakan apa yang sedang kamu bangun — lalu kita cari cara terbaik untuk merilisnya.',
+  'contact.copy': 'Salin', 'contact.cta': 'Kirim email',
+  'footer.made': 'Didesain &amp; dibangun oleh Ridho', 'footer.top': 'Kembali ke atas ↑',
+};
+const UI = {
+  en: { copied: 'Copied', open: 'Open menu', close: 'Close menu' },
+  id: { copied: 'Tersalin', open: 'Buka menu', close: 'Tutup menu' },
+};
+let lang = 'en';
+const i18nEls = $$('[data-i18n]');
+i18nEls.forEach((el) => { el._en = el.innerHTML; });
+
+function splitWords() {
+  $$('[data-split]').forEach((el) => {
+    const words = el.textContent.trim().split(/\s+/);
+    el.textContent = '';
+    words.forEach((w, i) => {
+      const s = document.createElement('span');
+      s.className = 'w';
+      s.textContent = w;
+      el.appendChild(s);
+      if (i < words.length - 1) el.appendChild(document.createTextNode(' '));
+    });
+    el._words = $$('.w', el);
+  });
+}
+
+function setLang(next) {
+  lang = next === 'id' ? 'id' : 'en';
+  i18nEls.forEach((el) => {
+    const v = lang === 'id' ? ID[el.dataset.i18n] : el._en;
+    if (v != null) el.innerHTML = v;
+  });
+  root.lang = lang;
+  $$('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  $('.menu-btn').setAttribute('aria-label', root.classList.contains('menu-open') ? UI[lang].close : UI[lang].open);
+  splitWords();
+  try { localStorage.setItem('lang', lang); } catch (e) {}
+}
+let saved = null;
+try { saved = localStorage.getItem('lang'); } catch (e) {}
+setLang(saved || ((navigator.language || '').toLowerCase().startsWith('id') ? 'id' : 'en'));
+$$('.lang button').forEach((b) => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+/* ------------------------------ Animation helpers ------------------------------ */
+let M = null;      // Motion library, once loaded
+let lenis = null;  // Lenis smooth scroll, once loaded
+const EASE = [0.16, 1, 0.3, 1];
+
+function anim(targets, keyframes, opts = {}) {
+  const list = targets instanceof Element ? [targets] : [...targets];
+  if (!list.length) return Promise.resolve();
+  if (M && !noMotion()) {
+    try { return M.animate(list, keyframes, { ease: EASE, ...opts }); } catch (e) { /* fall through */ }
+  }
+  list.forEach((el) => { for (const k in keyframes) { const kf = keyframes[k]; el.style[k] = Array.isArray(kf) ? kf[kf.length - 1] : kf; } });
+  return Promise.resolve();
+}
+const stagger = (step, start = 0) => (i) => start + i * step;
+
+/* ------------------------------ Mobile menu ------------------------------ */
+const menuBtn = $('.menu-btn');
+const menu = $('#menu');
+function setMenu(open) {
+  root.classList.toggle('menu-open', open);
+  menuBtn.setAttribute('aria-expanded', String(open));
+  menuBtn.setAttribute('aria-label', open ? UI[lang].close : UI[lang].open);
+  menu.setAttribute('aria-hidden', String(!open));
+  if (open) {
+    lenis && lenis.stop();
+    anim($$('.menu-links a', menu), { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0px)'] }, { duration: 0.9, delay: stagger(0.06, 0.2) });
+  } else if (root.classList.contains('ready')) {
+    lenis && lenis.start();
+  }
+}
+menuBtn.addEventListener('click', () => setMenu(!root.classList.contains('menu-open')));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && root.classList.contains('menu-open')) { setMenu(false); menuBtn.focus(); } });
+
+/* ------------------------------ Clock ------------------------------ */
+const clockFmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+const clocks = $$('.clock');
+const tickClock = () => { const t = clockFmt.format(new Date()); clocks.forEach((c) => { c.textContent = t; }); };
+tickClock();
+setInterval(tickClock, 1000);
+
+/* ------------------------------ Copy email ------------------------------ */
+$('#copy-email').addEventListener('click', async (e) => {
+  const label = $('span', e.currentTarget);
+  try { await navigator.clipboard.writeText(CONFIG.email); } catch (err) {
+    const ta = document.createElement('textarea');
+    ta.value = CONFIG.email; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    const ok = document.execCommand('copy'); ta.remove();
+    if (!ok) return;
+  }
+  label.textContent = UI[lang].copied;
+  setTimeout(() => { label.innerHTML = lang === 'id' ? ID['contact.copy'] : label._en; }, 1800);
+});
+
+/* ------------------------------ Preloader ------------------------------ */
+const preCount = $('#pre-count');
+const preBar = $('.preloader-bar span');
+let libsLoaded = false;
+const preStart = performance.now();
+const preloaderDone = new Promise((resolve) => {
+  if (reduced || root.classList.contains('ready')) return resolve();
+  let shown = 0;
+  (function tick(now) {
+    const timeGoal = clamp((now - preStart) / 1500) * 100;
+    const goal = libsLoaded ? timeGoal : Math.min(timeGoal, 88);
+    shown += (goal - shown) * 0.12;
+    if (goal >= 100 && shown > 99.4) shown = 100;
+    preCount.textContent = Math.round(shown);
+    preBar.style.transform = `scaleX(${shown / 100})`;
+    if (shown >= 100) resolve(); else requestAnimationFrame(tick);
+  })(preStart);
+});
+
+/* ------------------------------ Libraries ------------------------------ */
+const [threeRes, motionRes, lenisRes] = await Promise.allSettled([
+  import('three'),
+  import('https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm'),
+  reduced ? Promise.reject(new Error('reduced motion')) : import('https://cdn.jsdelivr.net/npm/lenis@1.1.13/+esm'),
+]);
+libsLoaded = true;
+M = motionRes.status === 'fulfilled' ? motionRes.value : null;
+if (!M) root.classList.add('no-motion');
+
+/* ------------------------------ Smooth scroll ------------------------------ */
+if (lenisRes.status === 'fulfilled') {
+  try { lenis = new lenisRes.value.default({ lerp: 0.1, smoothWheel: true }); lenis.stop(); } catch (e) { lenis = null; }
+}
+
+function scrollToTarget(hash) {
+  const target = hash === '#top' ? document.body : $(hash);
+  if (!target) return;
+  if (lenis) lenis.scrollTo(hash === '#top' ? 0 : target, { duration: 1.6 });
+  else target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+  const focusEl = hash === '#top' ? $('#top') : target;
+  if (focusEl && !focusEl.hasAttribute('tabindex')) focusEl.setAttribute('tabindex', '-1');
+  focusEl && focusEl.focus({ preventScroll: true });
+}
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const hash = a.getAttribute('href');
+  if (hash.length < 2) return;
+  e.preventDefault();
+  setMenu(false);
+  scrollToTarget(hash);
+  history.replaceState(null, '', hash === '#top' ? location.pathname : hash);
+});
+
+/* ------------------------------ Reveals ------------------------------ */
+function countUp(el) {
+  const to = +el.dataset.count;
+  const pad = +(el.dataset.pad || 0);
+  const fmt = (v) => String(Math.round(v)).padStart(pad, '0');
+  if (noMotion()) { el.textContent = fmt(to); return; }
+  const start = performance.now();
+  (function step(now) {
+    const p = clamp((now - start) / 1400);
+    el.textContent = fmt(to * (1 - Math.pow(1 - p, 4)));
+    if (p < 1) requestAnimationFrame(step);
+  })(start);
+}
+
+function reveal(el, base = 0) {
+  if (el.classList.contains('reveal-lines')) {
+    anim($$('.line-inner', el), { transform: ['translateY(110%)', 'translateY(0%)'] }, { duration: 1.2, delay: stagger(0.09, base) });
+  }
+  if (el.classList.contains('reveal-stagger')) {
+    anim(el.children, { opacity: [0, 1], transform: ['translateY(28px)', 'translateY(0px)'] }, { duration: 1, delay: stagger(0.07, base) });
+    $$('[data-count]', el).forEach((c) => setTimeout(() => countUp(c), base * 1000 + 200));
+  }
+  if (el.classList.contains('reveal')) {
+    anim(el, { opacity: [0, 1], transform: ['translateY(36px)', 'translateY(0px)'] }, { duration: 1.1, delay: base });
+  }
+}
+
+const revealIO = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    revealIO.unobserve(entry.target);
+    reveal(entry.target);
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+function startReveals() {
+  $$('.reveal, .reveal-lines, .reveal-stagger').forEach((el) => {
+    if (!el.closest('[data-intro]')) revealIO.observe(el);
+  });
+}
+
+/* ------------------------------ Three.js particles ------------------------------ */
+function makeShapes(N) {
+  const R = Math.random, TAU = Math.PI * 2;
+  const rx = (p, a) => { const c = Math.cos(a), s = Math.sin(a); return [p[0], p[1] * c - p[2] * s, p[1] * s + p[2] * c]; };
+  const ry = (p, a) => { const c = Math.cos(a), s = Math.sin(a); return [p[0] * c + p[2] * s, p[1], -p[0] * s + p[2] * c]; };
+  const rz = (p, a) => { const c = Math.cos(a), s = Math.sin(a); return [p[0] * c - p[1] * s, p[0] * s + p[1] * c, p[2]]; };
+  const fib = (i, n, r) => { const y = 1 - (i / Math.max(n - 1, 1)) * 2, rr = Math.sqrt(Math.max(0, 1 - y * y)), th = i * 2.399963229728653; return [Math.cos(th) * rr * r, y * r, Math.sin(th) * rr * r]; };
+  const jit = (p, s) => [p[0] + (R() - 0.5) * s, p[1] + (R() - 0.5) * s, p[2] + (R() - 0.5) * s];
+  const gen = (fn) => { const a = new Float32Array(N * 3); for (let i = 0; i < N; i++) { const p = fn(i); a[i * 3] = p[0]; a[i * 3 + 1] = p[1]; a[i * 3 + 2] = p[2]; } return a; };
+  const inStar = (x, y) => (Math.abs(x) <= 1 && Math.abs(y) <= 1) || (Math.abs(x + y) <= Math.SQRT2 && Math.abs(x - y) <= Math.SQRT2);
+
+  return {
+    // Hero & contact — a calm, breathing sphere
+    sphere: gen((i) => fib(i, N, 2.3 * (0.97 + R() * 0.06))),
+    // Ambient field for text-heavy sections
+    scatter: gen(() => [(R() - 0.5) * 26, (R() - 0.5) * 15, -7 + R() * 9]),
+    // Work intro — a spiral galaxy of ideas
+    galaxy: gen(() => {
+      const arm = Math.floor(R() * 3), t = Math.pow(R(), 0.65), r = 0.15 + t * 3.1;
+      const ang = (arm / 3) * TAU + r * 1.25, sp = 0.45 * (1 - t * 0.55);
+      return rz(rx([Math.cos(ang) * r + (R() - 0.5) * sp, (R() - 0.5) * 0.28 * (1 - t), Math.sin(ang) * r + (R() - 0.5) * sp], 1.05), 0.25);
+    }),
+    // Imperium Dawn — a ringed planet with a moon
+    planet: (() => { const nS = Math.floor(N * 0.5), nM = Math.floor(N * 0.04); return gen((i) => {
+      if (i < nS) return fib(i, nS, 1.35);
+      if (i < nS + nM) { const p = fib(i - nS, nM, 0.2); return [p[0] + 2.6, p[1] + 1.5, p[2] - 0.4]; }
+      const r = 1.9 + Math.pow(R(), 0.8) * 1.1, a = R() * TAU;
+      return rz(rx([Math.cos(a) * r, (R() - 0.5) * 0.05, Math.sin(a) * r], 0.5), -0.3);
+    }); })(),
+    // EdoGo — a rolling Japanese wave
+    wave: (() => { const cols = Math.round(Math.sqrt(N * 1.5)), rows = Math.ceil(N / cols); return gen((i) => {
+      const x = ((i % cols) / (cols - 1) - 0.5) * 6.2, z = (Math.floor(i / cols) / Math.max(rows - 1, 1) - 0.5) * 4;
+      return rx([x, Math.sin(x * 1.1 + z * 0.7) * 0.42 + Math.cos(z * 1.6 - x * 0.3) * 0.22, z], 0.5);
+    }); })(),
+    // LPKGo — a structured data lattice
+    lattice: gen(() => {
+      const g = [-1.5, -0.5, 0.5, 1.5], u = 1.15, ax = Math.floor(R() * 3);
+      const a = g[Math.floor(R() * 4)] * u, b = g[Math.floor(R() * 4)] * u, t = (R() * 2 - 1) * 1.5 * u;
+      const p = ax === 0 ? [t, a, b] : ax === 1 ? [a, t, b] : [a, b, t];
+      return ry(rx(jit(p, 0.02), 0.5), 0.65);
+    }),
+    // AlFirdaus — an eight-pointed Islamic star (Rub el Hizb)
+    star: gen(() => {
+      const S = 2.05, m = R(); let p;
+      if (m < 0.62) {
+        const rot = R() < 0.5 ? 0 : Math.PI / 4, sc = R() < 0.72 ? 1 : 0.84, e = Math.floor(R() * 4), t = R() * 2 - 1;
+        const q = e === 0 ? [t, 1] : e === 1 ? [t, -1] : e === 2 ? [1, t] : [-1, t];
+        const c = Math.cos(rot), s = Math.sin(rot);
+        p = [(q[0] * c - q[1] * s) * sc, (q[0] * s + q[1] * c) * sc, (R() - 0.5) * 0.18];
+      } else if (m < 0.8) {
+        const a = R() * TAU; p = [Math.cos(a) * 0.46, Math.sin(a) * 0.46, (R() - 0.5) * 0.12];
+      } else {
+        let x, y; do { x = R() * 2.84 - 1.42; y = R() * 2.84 - 1.42; } while (!inStar(x, y));
+        p = [x, y, (R() - 0.5) * 0.35];
+      }
+      return [p[0] * S, p[1] * S, p[2] * S];
+    }),
+    // TajirPOS — stacks of coins that grow like a revenue chart
+    coins: (() => { const H = [3, 5, 7, 10, 13], tot = H.reduce((a, b) => a + b, 0), r = 0.44, th = 0.15, pitch = 0.2; return gen(() => {
+      let k = Math.floor(R() * tot), c = 0; while (k >= H[c]) { k -= H[c]; c++; }
+      const x0 = (c - 2) * 1.12, y0 = -1.45 + k * pitch, a = R() * TAU;
+      let p;
+      if (R() < 0.68) p = [x0 + Math.cos(a) * r, y0 + R() * th, Math.sin(a) * r];
+      else { const rr = Math.sqrt(R()) * r; p = [x0 + Math.cos(a) * rr, y0 + th, Math.sin(a) * rr]; }
+      return ry(rx(p, 0.32), -0.35);
+    }); })(),
+    // Process — a double helix: every step connected
+    helix: gen(() => {
+      const H = 5.4;
+      if (R() < 0.8) { const y = (R() - 0.5) * H, a = y * 1.7 + (R() < 0.5 ? 0 : Math.PI); return jit([Math.cos(a) * 1.05, y, Math.sin(a) * 1.05], 0.08); }
+      const k = Math.floor(R() * 22), y = (k / 21 - 0.5) * H, a = y * 1.7, t = R() * 2 - 1;
+      return [Math.cos(a) * 1.05 * t, y, Math.sin(a) * 1.05 * t];
+    }),
+  };
+}
+
+// x/y are fractions of the half-viewport in world units; m = narrow-screen override.
+const SCENES = {
+  hero:      { shape: 'sphere',  x: 0.42, y: 0,    s: 1,    o: 1,    spin: 0.12, wob: 0.05, m: { x: 0, y: 0.42, s: 0.72, o: 0.85 } },
+  about:     { shape: 'scatter', x: 0,    y: 0,    s: 1,    o: 0.38, spin: 0.02, wob: 0.08, full: true },
+  work:      { shape: 'galaxy',  x: 0.5,  y: 0.05, s: 0.72, o: 0.8,  spin: 0.1,  wob: 0.04 },
+  imperium:  { shape: 'planet',  x: 0.55, y: 0,    s: 0.8,  o: 1,    spin: 0.12, wob: 0.03 },
+  edogo:     { shape: 'wave',    x: 0.55, y: 0,    s: 0.74, o: 1,    spin: 0,    wob: 0.2,  flat: true },
+  lpkgo:     { shape: 'lattice', x: 0.55, y: 0,    s: 0.72, o: 1,    spin: 0.14, wob: 0.02 },
+  alfirdaus: { shape: 'star',    x: 0.55, y: 0,    s: 0.7,  o: 1,    spin: 0,    wob: 0.03, flat: true },
+  tajirpos:  { shape: 'coins',   x: 0.55, y: 0,    s: 0.8,  o: 1,    spin: 0,    wob: 0.02, flat: true },
+  stack:     { shape: 'scatter', x: 0,    y: 0,    s: 1,    o: 0.3,  spin: 0.02, wob: 0.08, full: true },
+  process:   { shape: 'helix',   x: 0.58, y: 0,    s: 0.9,  o: 1,    spin: 0.25, wob: 0.03 },
+  journey:   { shape: 'scatter', x: 0,    y: 0,    s: 1,    o: 0.3,  spin: 0.02, wob: 0.08, full: true },
+  contact:   { shape: 'sphere',  x: 0,    y: 0.05, s: 1.3,  o: 0.7,  spin: 0.1,  wob: 0.08, m: { x: 0, y: 0.05, s: 0.8, o: 0.5 } },
+};
+
+function initGL(THREE) {
+  const canvas = $('#gl');
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: 'high-performance' });
+  } catch (e) { canvas.remove(); return null; }
+  renderer.setClearColor(0x000000, 0);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+  camera.position.z = 10;
+
+  const N = innerWidth < 768 ? 3600 : 7000;
+  const shapes = makeShapes(N);
+  const pos = new Float32Array(shapes.scatter);
+  let tgt = shapes.scatter;
+  const rand = new Float32Array(N), speed = new Float32Array(N);
+  for (let i = 0; i < N; i++) { rand[i] = Math.random(); speed[i] = reduced ? 0.2 : 0.018 + Math.random() * 0.05; }
+
+  const geo = new THREE.BufferGeometry();
+  const posAttr = new THREE.BufferAttribute(pos, 3);
+  posAttr.setUsage(THREE.DynamicDrawUsage);
+  geo.setAttribute('position', posAttr);
+  geo.setAttribute('aRand', new THREE.BufferAttribute(rand, 1));
+
+  const uniforms = {
+    uTime: { value: 0 }, uSize: { value: 2.6 }, uPR: { value: 1 }, uWobble: { value: 0.05 }, uOpacity: { value: 0 },
+  };
+  const material = new THREE.ShaderMaterial({
+    uniforms, transparent: true, depthWrite: false, depthTest: false,
+    vertexShader: `
+      attribute float aRand;
+      uniform float uTime, uSize, uPR, uWobble;
+      varying float vAlpha;
+      void main() {
+        vec3 p = position;
+        float ph = aRand * 6.2831;
+        p.x += sin(uTime * 0.9 + p.y * 1.7 + ph) * uWobble * 0.5;
+        p.y += sin(uTime * 1.1 + p.x * 1.3 + p.z * 0.8) * uWobble;
+        p.z += cos(uTime * 0.8 + p.x * 1.1 + ph) * uWobble * 0.5;
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_Position = projectionMatrix * mv;
+        gl_PointSize = uSize * uPR * (0.55 + aRand * 0.9) * (10.0 / -mv.z);
+        vAlpha = 0.5 + aRand * 0.5;
+      }`,
+    fragmentShader: `
+      uniform float uOpacity;
+      varying float vAlpha;
+      void main() {
+        float d = length(gl_PointCoord - 0.5);
+        if (d > 0.5) discard;
+        gl_FragColor = vec4(vec3(1.0), smoothstep(0.5, 0.15, d) * vAlpha * uOpacity);
+      }`,
+  });
+  const points = new THREE.Points(geo, material);
+  points.frustumCulled = false;
+  const group = new THREE.Group();
+  group.add(points);
+  scene.add(group);
+
+  let halfW = 1, halfH = 1, narrow = false, current = null, goal = null;
+  const cur = { x: 0, y: 0, s: 1, o: 0, spin: 0, wob: 0.05 };
+  let ry = 0, pulse = 0, last = 0;
+  const mouse = { x: 0, y: 0, sx: 0, sy: 0 };
+
+  function computeGoal(name) {
+    const sc = SCENES[name];
+    const o = narrow && !sc.full ? { x: 0, y: 0, s: sc.s * 0.7, o: sc.o * 0.4, ...(sc.m || {}) } : {};
+    const v = { ...sc, ...o };
+    return { x: v.x * halfW, y: v.y * halfH, s: v.s, o: v.o, spin: reduced ? v.spin * 0.2 : v.spin, wob: reduced ? 0 : v.wob, flat: !!v.flat };
+  }
+  function setScene(name) {
+    if (!SCENES[name] || name === current) return;
+    current = name;
+    tgt = shapes[SCENES[name].shape];
+    goal = computeGoal(name);
+    pulse = reduced ? 0 : 0.25;
+  }
+  function resize() {
+    const w = innerWidth, h = innerHeight, pr = Math.min(devicePixelRatio || 1, 1.75);
+    renderer.setPixelRatio(pr);
+    renderer.setSize(w, h);
+    uniforms.uPR.value = pr;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    halfH = Math.tan((camera.fov * Math.PI) / 360) * camera.position.z;
+    halfW = halfH * camera.aspect;
+    narrow = w < 1100;
+    if (current) goal = computeGoal(current);
+  }
+  resize();
+  addEventListener('resize', resize);
+  addEventListener('pointermove', (e) => { mouse.x = (e.clientX / innerWidth) * 2 - 1; mouse.y = (e.clientY / innerHeight) * 2 - 1; }, { passive: true });
+
+  function render(t, vel) {
+    const dt = Math.min(t - last || 0.016, 0.05); last = t;
+    const f = dt * 60;
+    for (let i = 0, j = 0; i < N; i++, j += 3) {
+      const k = Math.min(speed[i] * f, 1);
+      pos[j] += (tgt[j] - pos[j]) * k;
+      pos[j + 1] += (tgt[j + 1] - pos[j + 1]) * k;
+      pos[j + 2] += (tgt[j + 2] - pos[j + 2]) * k;
+    }
+    posAttr.needsUpdate = true;
+    if (goal) {
+      const L = Math.min(0.045 * f, 1);
+      cur.x += (goal.x - cur.x) * L; cur.y += (goal.y - cur.y) * L; cur.s += (goal.s - cur.s) * L;
+      cur.o += (goal.o - cur.o) * L; cur.spin += (goal.spin - cur.spin) * L; cur.wob += (goal.wob - cur.wob) * L;
+    }
+    pulse *= Math.pow(0.95, f);
+    mouse.sx += (mouse.x - mouse.sx) * Math.min(0.05 * f, 1);
+    mouse.sy += (mouse.y - mouse.sy) * Math.min(0.05 * f, 1);
+    ry += dt * (cur.spin + (reduced ? 0 : Math.min(Math.abs(vel) * 0.004, 0.6)));
+    if (goal && goal.flat) { const w = Math.atan2(Math.sin(ry), Math.cos(ry)); ry -= w * Math.min(0.03 * f, 1); }
+    const sway = goal && goal.flat && !reduced ? Math.sin(t * 0.4) * 0.22 : 0;
+    group.rotation.y = ry + sway + mouse.sx * 0.35;
+    group.rotation.x = mouse.sy * 0.22;
+    group.position.set(cur.x, cur.y, 0);
+    group.scale.setScalar(cur.s);
+    uniforms.uTime.value = t;
+    uniforms.uWobble.value = cur.wob + pulse;
+    uniforms.uOpacity.value = cur.o;
+    renderer.render(scene, camera);
+  }
+  return { setScene, render };
+}
+
+const gl = threeRes.status === 'fulfilled' ? initGL(threeRes.value) : null;
+if (!gl) { const c = $('#gl'); c && c.remove(); }
+
+let activeScene = 'hero';
+let glStarted = false;
+const sceneIO = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    activeScene = entry.target.dataset.scene;
+    if (glStarted && gl) gl.setScene(activeScene);
+  });
+}, { rootMargin: '-48% 0px -48% 0px' });
+$$('[data-scene]').forEach((el) => sceneIO.observe(el));
+
+/* ------------------------------ Cursor & magnetic ------------------------------ */
+const cursor = $('.cursor');
+const cur = { x: innerWidth / 2, y: innerHeight / 2, tx: innerWidth / 2, ty: innerHeight / 2 };
+if (finePointer && !reduced) {
+  root.classList.add('has-cursor');
+  addEventListener('pointermove', (e) => { cur.tx = e.clientX; cur.ty = e.clientY; }, { passive: true });
+  document.addEventListener('pointerover', (e) => {
+    cursor.classList.toggle('is-hover', !!e.target.closest('a, button, [data-hover]'));
+  });
+  root.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
+  root.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
+
+  $$('[data-magnetic]').forEach((el) => {
+    el.style.transition = 'transform .6s cubic-bezier(.16,1,.3,1), color .6s cubic-bezier(.16,1,.3,1), background .4s';
+    el.addEventListener('pointermove', (e) => {
+      const r = el.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+      el.style.transform = `translate(${dx * 0.25}px, ${dy * 0.35}px)`;
+    });
+    el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+  });
+}
+
+/* ------------------------------ Frame loop ------------------------------ */
+const nav = $('#nav');
+const progress = $('.progress');
+const track = $('.marquee-track');
+const group = $('.marquee-group', track);
+for (let i = 0; i < 3; i++) track.appendChild(group.cloneNode(true));
+let groupW = group.offsetWidth;
+const railFill = $('.process-rail span');
+const processList = $('.process-list');
+const manifesto = $('.manifesto');
+
+let docH = 1;
+const measure = () => { docH = Math.max(1, document.documentElement.scrollHeight - innerHeight); groupW = group.offsetWidth || groupW; };
+measure();
+addEventListener('resize', measure);
+new ResizeObserver(measure).observe(document.body);
+document.fonts && document.fonts.ready.then(measure);
+
+let lastY = scrollY, vel = 0, dir = 1, mx = 0, navHidden = false;
+function frame(now) {
+  const t = now / 1000;
+  lenis && lenis.raf(now);
+  const y = scrollY, vh = innerHeight;
+  vel += ((y - lastY) - vel) * 0.2;
+  if (Math.abs(y - lastY) > 0.5) dir = y > lastY ? 1 : -1;
+  const hide = y > 240 && y > lastY + 1 && !root.classList.contains('menu-open');
+  const show = y < lastY - 1 || y <= 240;
+  lastY = y;
+
+  // Reads
+  const mRect = manifesto._words ? manifesto.getBoundingClientRect() : null;
+  const pRect = processList.getBoundingClientRect();
+
+  // Writes
+  progress.style.transform = `scaleX(${clamp(y / docH)})`;
+  if (hide && !navHidden) { nav.classList.add('is-hidden'); navHidden = true; }
+  else if (show && navHidden) { nav.classList.remove('is-hidden'); navHidden = false; }
+
+  if (!noMotion()) {
+    if (mRect && mRect.top < vh && mRect.bottom > 0) {
+      const p = clamp((vh * 0.85 - mRect.top) / (mRect.height + vh * 0.35));
+      const words = manifesto._words, n = words.length;
+      for (let i = 0; i < n; i++) words[i].style.opacity = 0.13 + 0.87 * clamp(p * n * 1.15 - i);
+    }
+    railFill.style.transform = `scaleY(${clamp((vh * 0.6 - pRect.top) / pRect.height)})`;
+    mx -= (reduced ? 0 : (0.6 + Math.min(Math.abs(vel) * 0.12, 10))) * dir;
+    if (groupW) { if (mx <= -groupW) mx += groupW; if (mx > 0) mx -= groupW; }
+    track.style.transform = `translate3d(${mx}px,0,0)`;
+  }
+
+  if (finePointer && !reduced) {
+    cur.x += (cur.tx - cur.x) * 0.2; cur.y += (cur.ty - cur.y) * 0.2;
+    cursor.style.transform = `translate3d(${cur.x}px, ${cur.y}px, 0)`;
+  }
+
+  gl && gl.render(t, vel);
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+/* ------------------------------ Intro ------------------------------ */
+await preloaderDone;
+const preloader = $('.preloader');
+if (!noMotion() && getComputedStyle(preloader).display !== 'none') {
+  await anim(preloader, { transform: ['translateY(0%)', 'translateY(-100%)'] }, { duration: 1.1, ease: [0.76, 0, 0.24, 1] });
+}
+root.classList.add('ready');
+lenis && lenis.start();
+glStarted = true;
+gl && gl.setScene(activeScene);
+measure();
+
+const intro = $('[data-intro]');
+anim($$('.line-inner', intro), { transform: ['translateY(110%)', 'translateY(0%)'] }, { duration: 1.3, delay: stagger(0.1, 0.05) });
+anim($$('.reveal', intro), { opacity: [0, 1], transform: ['translateY(36px)', 'translateY(0px)'] }, { duration: 1.2, delay: stagger(0.1, 0.45) });
+startReveals();
+</script>
+</body>
+</html>
